@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+	h1{
+		width: 100px;
+	}
+	form{
+		position: flex;
+	}
+	input{
+		flex:1;
+		border-radius: 10px;
+		width: 200px;
+		
+	}
+	button{
+		flex:1;
+		height: 30px;
+	}
+</style>
+</head>
+<body>
+	<!-- 
+	signin.html 요청을 하면 화면을 그리는 담당
+	1.요청
+	form 태그중 method 속성, action 속성에 대해 알아보고 
+	name 값과 password 값을 보낼 수 있는 화면을 구성하시오. 
+	
+	2. 버튼을 누르면 연산 처리를 할 서블릿 객체를 만들어 주세요.
+		method 방식은 post
+		서버 콘솔창에 넘겨받은 데이터를 출력하시오
+	-->
+	<section class="header">
+		<div class="icon">
+			<img alt="" src="images/airbnb.jpg">
+		</div>
+	</section>
+	<section>
+	<h1> 로그인</h1>
+	</section>
+	<section class = content>
+	<form action ="/exer/usercontroller" method="POST">
+	<input type="text" placeholder=id name = "name">
+	<input type="text" placeholder=pw name = "password">
+	<button type="submit">로그인</button>
+	</form>
+	</section>
+</body>
+</html>
