@@ -25,13 +25,14 @@ public class UserController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String name = request.getParameter("name");
+		String id = request.getParameter("id");
 		String pwd = request.getParameter("password");
 		
-		System.out.println("name : " + name);
+		System.out.println("name : " + id);
 		System.out.println("password : " + pwd);
 		// 다른곳으로 한번 더 돌림
-		response.sendRedirect("/exer/airbnbHome.jsp");
+		response.sendRedirect("/exer/Login.jsp");
+		
 	}
 
 }

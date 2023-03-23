@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,17 +68,22 @@ button {
 		</div>
 	</section>
 	<section class=content>
-		<form action="/exer/usercontroller" method="POST">
+		<form action="Login.jsp" method="POST">
 			<div class="form-group">
-				<input type="text" placeholder=id name="name" class="form-control"
+				<input type="text" placeholder=id name="id" id="id" class="form-control"
 					required>
 			</div>
 			<div class="form-group">
-				<input type="text" placeholder=pw name="password"
+				<input type="text" placeholder=pw name="password" id="password"
 					class="form-control" required>
 			</div>
 			<button type="submit" class="btn btn-primary">로그인</button>
 		</form>
 	</section>
+		<%-- 세션 클래스에 사용자 이름이 저장되어 있으면 로그인 상태를 유지합니다. --%>
+	<% if(session.getAttribute("id")!=null){ %>
+		
+			
+		<%}%>
 </body>
 </html>

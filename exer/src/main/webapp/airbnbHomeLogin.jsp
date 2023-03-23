@@ -65,6 +65,8 @@ div {
 .home div {
 	flex: 1;
 }
+.login{
+}
 </style>
 </head>
 <body>
@@ -83,7 +85,7 @@ div {
 		</div>
 		<div>당신의 공간을 에어비엔비하세요</div>
 		<div>
-			<a href="/exer/signin.jsp"><img alt="" src="images/myinfo.jpg"></a>
+			<a href=""><img alt="" src="images/Login.jpg" class="login"></a>
 		</div>
 	</section>
 	<section class="list">
@@ -187,5 +189,7 @@ div {
 			</form>
 		</div>
 	</section>
+	<% if(session.getAttribute("id")!=null){ %>
+		<%}%>
 </body>
 </html>
