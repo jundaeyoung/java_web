@@ -18,8 +18,9 @@ public class UserService {
 	public int insertByUser(String id, String password,String tel,String email) {
 		int resultRow =0;
 		
-		UserDTO userDTO = selectByUserId(id, password);
-		if(userDTO !=null ) {
+		UserDTO userDTO = userDAO.select(id);
+		
+		if(userDTO != null ) {
 			String userWriteId = userDTO.getId();
 			if(id.equals(userWriteId)) {
 				System.out.println("같은 아이디가 존재합니다.");

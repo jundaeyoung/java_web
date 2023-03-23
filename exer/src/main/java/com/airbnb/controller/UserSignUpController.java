@@ -36,22 +36,22 @@ public class UserSignUpController extends HttpServlet {
 		String tel = request.getParameter("tel");
 		String email = request.getParameter("email");
 		UserDTO responseDTO = userService.selectByUserId(id, password);
-		
+
 		System.out.println("id : " + id);
 		System.out.println("password : " + password);
 		System.out.println("tel : " + tel);
 		System.out.println("email : " + email);
 		// 다른곳으로 한번 더 돌림
-		if (responseDTO.getId() != null) {
-			response.sendRedirect("/exer/signin.jsp");
-			System.out.println("ww");
-			int insertDTO = userService.insertByUser(id, password,tel,email);
-		} else {
+
+		int insertDTO = userService.insertByUser(id, password, tel, email);
+
+		if (insertDTO == 0) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter writer = response.getWriter();
 			writer.println("<script>alert('이미 회원가입된 아이디입니다.'); location.href='/exer/signin.jsp';</script>");
 			writer.close();
+		} else {
+			response.sendRedirect("/exer/signin.jsp");
 		}
 	}
-
 }

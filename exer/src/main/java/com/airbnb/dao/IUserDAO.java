@@ -6,5 +6,7 @@ public interface IUserDAO {
 
 	UserDTO select(String id, String password);
 	
+	UserDTO select(String id);
+	
 	int insert(String id, String password,String tel, String email);
 }
