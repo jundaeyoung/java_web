@@ -45,7 +45,6 @@ input {
 
 button {
 	float: right;
-	margin: 1px;
 }
 </style>
 </head>
@@ -65,21 +64,32 @@ button {
 	</section>
 	<section class="header">
 		<div class="icon">
-			<h1>Login</h1>
+			<h1>회원가입</h1>
 		</div>
 	</section>
 	<section class=content>
-		<form action="/exer/usercontroller" method="POST">
+		<form action="/exer/usersignupcontroller" method="POST">
 			<div class="form-group">
+			<label>아이디</label>
 				<input type="text" placeholder=id name="id" id="id" class="form-control"
 					required>
 			</div>
 			<div class="form-group">
-				<input type="text" placeholder=pw name="password" id="password"
+			<label>비밀번호</label>	
+				<input type="password" placeholder="password" name="password" id="password"
 					class="form-control" required>
 			</div>
-			<button type="submit" class="btn btn-primary">로그인</button>
-			<a href="/exer/signup.jsp"><button type="button" class="btn btn-primary" style="text-color:white" > 회원가입</button></a>
+			<div class="form-group">
+			<label>전화번호</label>
+				<input type="tel" placeholder="tel" name="tel" id="tel"
+					class="form-control" required>
+			</div>
+			<div class="form-group">
+			<label>이메일</label>
+				<input type="email" placeholder=email name="email" id="email"
+					class="form-control" required>
+			</div>
+			<button type="submit" class="btn btn-primary">회원가입</button>
 		</form>
 	</section>
 		<%-- 세션 클래스에 사용자 이름이 저장되어 있으면 로그인 상태를 유지합니다. --%>

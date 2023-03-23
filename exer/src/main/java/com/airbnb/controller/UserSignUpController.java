@@ -15,12 +15,12 @@ import com.airbnb.service.UserService;
 /**
  * Servlet implementation class UserController
  */
-@WebServlet("/usercontroller")
-public class UserController extends HttpServlet {
+@WebServlet("/usersignupcontroller")
+public class UserSignUpController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserService userService;
 
-	public UserController() {
+	public UserSignUpController() {
 		userService = new UserService();
 	}
 
@@ -33,18 +33,23 @@ public class UserController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
+		String tel = request.getParameter("tel");
+		String email = request.getParameter("email");
 		UserDTO responseDTO = userService.selectByUserId(id, password);
-
-		System.out.println("name : " + id);
+		
+		System.out.println("id : " + id);
 		System.out.println("password : " + password);
-		System.out.println(responseDTO.toString());
+		System.out.println("tel : " + tel);
+		System.out.println("email : " + email);
 		// 다른곳으로 한번 더 돌림
 		if (responseDTO.getId() != null) {
-			response.sendRedirect("/exer/airbnbHomeLogin.jsp");
+			response.sendRedirect("/exer/signin.jsp");
+			System.out.println("ww");
+			int insertDTO = userService.insertByUser(id, password,tel,email);
 		} else {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter writer = response.getWriter();
-			writer.println("<script>alert('가입부터해라'); location.href='/exer/signin.jsp';</script>");
+			writer.println("<script>alert('이미 회원가입된 아이디입니다.'); location.href='/exer/signin.jsp';</script>");
 			writer.close();
 		}
 	}
