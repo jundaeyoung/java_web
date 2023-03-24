@@ -28,6 +28,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 }
 
 .head {
@@ -45,6 +46,7 @@ input {
 
 button {
 	float: right;
+	margin-bottom: 100px;
 }
 </style>
 </head>

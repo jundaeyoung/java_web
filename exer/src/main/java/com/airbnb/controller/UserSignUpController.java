@@ -44,11 +44,11 @@ public class UserSignUpController extends HttpServlet {
 		// 다른곳으로 한번 더 돌림
 
 		int insertDTO = userService.insertByUser(id, password, tel, email);
-
+		System.out.println("insertDTO" + insertDTO);
 		if (insertDTO == 0) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter writer = response.getWriter();
-			writer.println("<script>alert('이미 회원가입된 아이디입니다.'); location.href='/exer/signin.jsp';</script>");
+			writer.println("<script>alert('이미 회원가입된 아이디입니다.'); location.href='/exer/signin.jsp';</script>");	
 			writer.close();
 		} else {
 			response.sendRedirect("/exer/signin.jsp");

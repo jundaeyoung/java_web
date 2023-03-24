@@ -43,6 +43,7 @@ input {
 }
 
 .list form {
+	margin-left:100px;
 	display: flex;
 }
 
@@ -72,7 +73,7 @@ div {
 <body>
 	<section class="header">
 		<div class="icon">
-			<img alt="" src="images/airbnb.jpg">
+			<a href="/exer/airbnbHomeLogin.jsp"><img alt="" src="images/airbnb.jpg"></a>
 		</div>
 		<div class="air"></div>
 		<div>
@@ -85,7 +86,7 @@ div {
 		</div>
 		<div>당신의 공간을 에어비엔비하세요</div>
 		<div>
-			<a href="/exer/index.jsp"><img alt="" src="images/Login.jpg" class="login"></a>
+			<a href="/exer/index.jsp"><img alt="" src="images/Login.png" class="login"></a>
 		</div>
 	</section>
 	<section class="list">

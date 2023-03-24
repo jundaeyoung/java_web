@@ -91,7 +91,7 @@ public class UserDAO implements IUserDAO {
 	public int update(String id, String password,String tel, String email, String targetId) {
 		int resultRow = 0;
 
-		String sql=" UPDATE `user' "
+		String sql=" UPDATE user "
 				+ " SET id = ? , "
 				+ "	password= ? , "
 				+ "    tel= ? , "
@@ -107,6 +107,7 @@ public class UserDAO implements IUserDAO {
 			resultRow = pstmt.executeUpdate();
 
 		} catch (SQLException e) {
+			System.out.println("update실행 에러 발생");
 			e.printStackTrace();
 		}
 		return resultRow;

@@ -43,6 +43,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 }
 
 .head {
@@ -60,6 +61,7 @@ input {
 
 button {
 	float: right;
+	margin-bottom: 150px;
 }
 </style>
 </head>
@@ -83,7 +85,7 @@ button {
 		</div>
 	</section>
 	<section class=content>
-		<form action="/exer/usersignupcontroller" method="POST">
+		<form action="/exer/userupdatecontroller" method="POST">
 			<div class="form-group">
 			<label>아이디</label>
 				<input type="text" value=<%= dbId %> name="id" id="id" class="form-control"
@@ -91,7 +93,7 @@ button {
 			</div>
 			<div class="form-group">
 			<label>비밀번호</label>	
-				<input type="text" value=<%= dbPwd %> name="password" id="password"
+				<input type="password" value=<%= dbPwd %> name="password" id="password"
 					class="form-control" required>
 			</div>
 			<div class="form-group">

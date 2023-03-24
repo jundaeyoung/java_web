@@ -36,7 +36,7 @@
 	}
 	h1{
 		flex:1;
-		margin-top: 130px;
+		margin-top: 250px;
 		margin-bottom: 50px;
 	}
 	form{

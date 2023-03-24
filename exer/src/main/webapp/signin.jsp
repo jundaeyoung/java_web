@@ -48,12 +48,12 @@ if (id != null && password != null) {
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <style>
 body {
-	margin: 20px;
 	height: 100vh;
 	padding: 10px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 }
 
 .head {
@@ -72,6 +72,8 @@ input {
 button {
 	float: right;
 	margin: 1px;
+		margin-bottom: 150px;
+	
 }
 </style>
 </head>
@@ -101,7 +103,7 @@ button {
 					required>
 			</div>
 			<div class="form-group">
-				<input type="text" placeholder=pw name="password" id="password"
+				<input type="password" placeholder=pw name="password" id="password"
 					class="form-control" required>
 			</div>
 			<button type="submit" class="btn btn-primary">로그인</button>

@@ -15,12 +15,12 @@ import com.airbnb.service.UserService;
 /**
  * Servlet implementation class UserController
  */
-@WebServlet("/userinsertcontroller")
-public class UserInsertController extends HttpServlet {
+@WebServlet("/userupdatecontroller")
+public class UserUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserService userService;
 
-	public UserInsertController() {
+	public UserUpdateController() {
 		userService = new UserService();
 	}
 
@@ -35,23 +35,29 @@ public class UserInsertController extends HttpServlet {
 		String password = request.getParameter("password");
 		String tel = request.getParameter("tel");
 		String email = request.getParameter("email");
-		String targetId = request.getParameter("targetId");
+		UserDTO responseDTO = userService.selectByUserId(id);
+		String targetId = responseDTO.getId();
 
 		System.out.println("id : " + id);
 		System.out.println("password : " + password);
 		System.out.println("tel : " + tel);
 		System.out.println("email : " + email);
+		System.out.println("targetId : " + targetId);
 		// 다른곳으로 한번 더 돌림
 
-//		int updateDTO = userService.updateByUser(id, password, tel, email,targetId);
-//
-//		if (updateDTO == 0) {
-//			response.setContentType("text/html; charset=UTF-8");
-//			PrintWriter writer = response.getWriter();
-//			writer.println("<script>alert('이미 회원가입된 아이디입니다.'); location.href='/exer/signin.jsp';</script>");
-//			writer.close();
-//		} else {
-//			response.sendRedirect("/exer/signin.jsp");
-//		}
+		int updateDTO = userService.updateByUser(id, password, tel, email,targetId);
+			System.out.println("updateDTO : " + updateDTO);
+			if(updateDTO == 0) {
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter writer = response.getWriter();
+				writer.println("<script>alert('정보수정이 실패하였습니다.'); location.href='/exer/edite.jsp';</script>");
+				writer.close();
+			}else {
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter writer = response.getWriter();
+				writer.println("<script>alert('정보수정이 성공하였습니다.'); location.href='/exer/airbnbHomeLogin.jsp';</script>");
+				writer.close();
+			}
+		}
 	}
-}
+

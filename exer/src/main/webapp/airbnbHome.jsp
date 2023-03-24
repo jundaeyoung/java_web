@@ -43,6 +43,7 @@ input {
 }
 
 .list form {
+	margin-left:100px;
 	display: flex;
 }
 
@@ -69,7 +70,7 @@ div {
 <body>
 	<section class="header">
 		<div class="icon">
-			<img alt="" src="images/airbnb.jpg">
+			<a href="/exer/airbnbHome.jsp"><img alt="" src="images/airbnb.jpg"></a>
 		</div>
 		<div class="air"></div>
 		<div>
@@ -91,31 +92,31 @@ div {
 	<section class="list">
 		<form action="" method="GET" class="serch">
 			<div>
-				<a href="form1.jsp"><img alt="" src="images/list1.jpg"></a>
+				<a href="/exer/error.jsp"><img alt="" src="images/list1.jpg"></a>
 			</div>
 			<div>
-				<a href="form1.jsp"><img alt="" src="images/list2.jpg"></a>
+				<a href="/exer/error.jsp"><img alt="" src="images/list2.jpg"></a>
 			</div>
 			<div>
-				<a href="form1.jsp"><img alt="" src="images/list3.jpg"></a>
+				<a href="/exer/error.jsp"><img alt="" src="images/list3.jpg"></a>
 			</div>
 			<div>
-				<a href="form1.jsp"><img alt="" src="images/list4.jpg"></a>
+				<a href="/exer/error.jsp"><img alt="" src="images/list4.jpg"></a>
 			</div>
 			<div>
-				<a href="form1.jsp"><img alt="" src="images/list5.jpg"></a>
+				<a href="/exer/error.jsp"><img alt="" src="images/list5.jpg"></a>
 			</div>
 			<div>
-				<a href="form1.jsp"><img alt="" src="images/list6.jpg"></a>
+				<a href="/exer/error.jsp"><img alt="" src="images/list6.jpg"></a>
 			</div>
 			<div>
-				<a href="form1.jsp"><img alt="" src="images/list7.jpg"></a>
+				<a href="/exer/error.jsp"><img alt="" src="images/list7.jpg"></a>
 			</div>
 			<div>
-				<a href="form1.jsp"><img alt="" src="images/list8.jpg"></a>
+				<a href="/exer/error.jsp"><img alt="" src="images/list8.jpg"></a>
 			</div>
 			<div>
-				<a href="form1.jsp"><img alt="" src="images/list9.jpg"></a>
+				<a href="/exer/error.jsp"><img alt="" src="images/list9.jpg"></a>
 			</div>
 		</form>
 	</section>
