@@ -39,13 +39,14 @@ public class UserController extends HttpServlet {
 		System.out.println("password : " + password);
 		System.out.println(responseDTO.toString());
 		// 다른곳으로 한번 더 돌림
+		System.out.println(responseDTO.getId());
 		if (responseDTO.getId() != null) {
 			response.sendRedirect("/exer/airbnbHomeLogin.jsp");
-		} else {
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter writer = response.getWriter();
-			writer.println("<script>alert('가입부터해라'); location.href='/exer/signin.jsp';</script>");
-			writer.close();
+		}else{
+//			response.setContentType("text/html; charset=UTF-8");
+//			PrintWriter writer = response.getWriter();
+//			writer.println("<script>alert('가입을해주세요.'); location.href='/exer/signin.jsp';</script>");	
+//			writer.close();
 		}
 	}
 

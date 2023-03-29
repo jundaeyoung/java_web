@@ -1,3 +1,4 @@
+<%@page import="java.io.PrintWriter"%>
 <%@page import="com.airbnb.service.UserService"%>
 <%@page import="com.airbnb.dto.UserDTO"%>
 <%@ page errorPage="errorPage.jsp" %>
@@ -21,8 +22,9 @@ if (id != null && password != null) {
 		response.sendRedirect("airbnbHomeLogin.jsp");
 	} else {
 		// login 실패
-		out.println("<script>alert('로그인에 실패하였습니다.');location.href='login.jsp'</script>");
-		response.sendRedirect("airbnbHome.jsp");
+		PrintWriter writer = response.getWriter();
+		writer.println("<script>alert('아이디,비밀번호가 일치하지 않습니다 확인해주세요.'); location.href='/exer/signin.jsp';</script>");	
+		writer.close();
 	}
 }
 		
@@ -32,6 +34,8 @@ if (id != null && password != null) {
 <head>
 <meta charset="UTF-8">
 <title>airbnb</title>
+<link rel="shortcut icon" sizes="76x76" type="image/x-icon"
+        href="https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -340,7 +344,7 @@ function newColour() {
 				<input type="password" placeholder=pw name="password" id="password"
 					class="form-control" required>
 			</div>
-			<button type="submit" class="btn btn-primary">로그인</button>
+			<a href="/exer/usercontroller"><button type="submit" class="btn btn-primary">로그인</button></a>
 			<a href="/exer/signup.jsp"><button type="button" class="btn btn-primary" style="text-color:white" > 회원가입</button></a>
 		</form>
 	</section>

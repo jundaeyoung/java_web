@@ -4,7 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>airbnb</title>
+<link rel="shortcut icon" sizes="76x76" type="image/x-icon"
+	href="https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico">
 </head>
 <style>
 * {
@@ -74,6 +76,9 @@ h2, h5 {
 	display: flex;
 	flex-direction: column;
 }
+#content h5{
+	margin-left: 1px; 
+}
 
 .info div {
 	display: flex;
@@ -99,7 +104,7 @@ h2, h5 {
 #calendar {
 	width: 350px;
 	height: 300px;
-	box-shadow:2px 3px 5px 0px;
+	box-shadow: 2px 3px 5px 0px;
 	border: 1px solid #D7D6D6;
 	border-radius: 20px;
 	justify-content: start;
@@ -113,15 +118,15 @@ h2, h5 {
 	margin: 10px;
 	heigt: 50px;
 }
-#calendar div{
+
+#calendar div {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 }
-#calendar div h3{
+
+#calendar div h3 {
 	width: 100px;
-	
-	
 }
 
 #calendar form {
@@ -130,6 +135,61 @@ h2, h5 {
 	align-items: center;
 	margin-right: 130px;
 	justify-content: center;
+}
+
+.search__box {
+	width: 430px;
+	display: inline-block;
+	padding: 20px 30px;
+	background-color: white;
+	position: relative;
+	top: 10px;
+	left: 50px;
+	border-radius: 6px;
+	box-shadow: 0 2px 2px 0 rgb(214, 214, 214);
+}
+
+.search__title {
+	padding: 10px 0;
+	font-size: 30px;
+	font-weight: 800;
+	color: rgb(75, 74, 74);
+}
+
+table {
+	width: 100%;
+}
+
+.search__sub__title {
+	padding: 10px 0;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.search__input {
+	height: 45px;
+	width: 100%;
+	color: rgb(100, 98, 98);
+	font-size: 15px;
+	border: 1px solid rgb(230, 227, 227);
+}
+
+.search__button {
+	display: grid;
+	justify-content: end;
+	padding: 20px 0;
+}
+
+.search__button button {
+	background-color: #FF5A5F;
+	color: white;
+	width: 70px;
+	height: 45px;
+	font-size: 15px;
+	font-weight: 700; /*굵기*/
+	border-radius: 6px;
+	border: 0;
+	cursor: pointer;
 }
 </style>
 <body>
@@ -203,21 +263,44 @@ h2, h5 {
 								<h6>Onda님은 다른 숙소에 대해 32개의 후기가 있습니다.</h6>
 							</div>
 						</div>
-
+						<hr>
+						<h2 style="margin: 20px; color: red">에어커버</h2>
+						<p style="margin: 20px">모든 예약에는 호스트가 예약을 취소하거나 숙소 정보가 정확하지 않은
+							경우 또는 체크인에 문제가 있는 상황에 대비한 무료 보호 프로그램이 포함됩니다.</p>
 					</div>
 				</div>
-				<div id=calendar>
-					<div>
-						<h1>₩290,440</h1>
-						<h4>/박</h4>
-						<h5>⭐ 4.67 · 후기 3개</h5>
+				<section>
+					<div class="search__box">
+						<div class="search__title">
+							특색 있는 숙소와 즐길<br /> 거리를 예약하세요.
+						</div>
+						<table>
+							<tr>
+								<td class="search__sub__title">체크인</td>
+								<td class="search__sub__title">체크아웃</td>
+							</tr>
+							<tr>
+								<td><input class="search__input" type="date" /></td>
+								<td><input class="search__input" type="date" /></td>
+							</tr>
+							<tr>
+								<td colspan="2" class="search__sub__title">인원</td>
+							</tr>
+							<tr>
+								<td colspan="2"><select class="search__input">
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+								</select></td>
+							</tr>
+						</table>
+						<div class="search__button">
+							<button type="submit" style="width: 420px">예약하기</button>
+						</div>
 					</div>
-
-					<form name="해당 폼의 이름" action="값을 보낼 주소" method="post">
-						<input type='date' name='userBirthday' value='1999-03-30' />
-
-					</form>
-				</div>
+				</section>
 			</div>
 
 

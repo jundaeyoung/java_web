@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>airbnb</title>
+<link rel="shortcut icon" sizes="76x76" type="image/x-icon"
+        href="https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico">
 <style type="text/css">
 * {
 	background-color: white;
@@ -80,11 +82,11 @@ div {
 	
 	<!-- Snowstorm start -->
 
-<script src="https://tistory1.daumcdn.net/tistory/2211096/skin/images/jquery-1.8.3.min.js?_version_=1581083549"></script>
+<!-- <script src="https://tistory1.daumcdn.net/tistory/2211096/skin/images/jquery-1.8.3.min.js?_version_=1581083549"></script>
 <script src="https://tistory1.daumcdn.net/tistory/2211096/skin/images/snowstorm.js?_version_=1581083549"></script>
 <script src="https://tistory1.daumcdn.net/tistory/2211096/skin/images/snowstorm-min.js?_version_=1581083549"></script>
 <script type="text/javascript" src="https://tistory1.daumcdn.net/tistory/2211096/skin/images/jquery.snow.js?_version_=1581083549"></script>
-	
+ -->	
 	<!--
 <script> 
 jQuery(document).ready( function(){
@@ -359,7 +361,7 @@ function newColour() {
 		<div>
 			<form action="" method="GET" class="serch">
 				<a
-					href="https://www.airbnb.co.kr/rooms/607458038229062130?adults=1&category_tag=Tag%3A8536&children=0&infants=0&pets=0&search_mode=flex_destinations_search&check_in=2023-03-20&check_out=2023-03-25&federated_search_id=13850516-6580-4eee-ab76-51b58a0a24ef&source_impression_id=p3_1679300951_%2Fkn8LWl8w5iL1CSy"><img
+					href="/exer/home1.jsp"><img
 					alt="" src="images/home1.jpg" style="border-radius: 20px">
 					<p>Ganggu-myeon, Yeongdeok-gun,한국</p>
 					<p>바다 전망</p>
