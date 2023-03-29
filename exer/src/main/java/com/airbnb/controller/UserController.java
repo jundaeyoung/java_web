@@ -35,11 +35,11 @@ public class UserController extends HttpServlet {
 		String password = request.getParameter("password");
 		UserDTO responseDTO = userService.selectByUserId(id, password);
 
-		System.out.println("name : " + id);
-		System.out.println("password : " + password);
-		System.out.println(responseDTO.toString());
+//		System.out.println("name : " + id);
+//		System.out.println("password : " + password);
+//		System.out.println(responseDTO.toString());
 		// 다른곳으로 한번 더 돌림
-		System.out.println(responseDTO.getId());
+//		System.out.println(responseDTO.getId());
 		if (responseDTO.getId() != null) {
 			response.sendRedirect("/exer/airbnbHomeLogin.jsp");
 		}else{

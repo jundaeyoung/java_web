@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%
+	String id = (String) session.getAttribute("id");
+	String home_id = "1";
+	session.setAttribute("home_id", home_id);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -195,7 +201,7 @@ table {
 <body>
 	<section class="header">
 		<div class="icon">
-			<a href="/exer/airbnbHome.jsp"><img alt=""
+			<a href="/exer/airbnbHomeLogin.jsp"><img alt=""
 				src="images/airbnb.jpg"></a>
 		</div>
 		<div class="air"></div>
@@ -212,7 +218,7 @@ table {
 		</div>
 		<div>당신의 공간을 에어비엔비하세요</div>
 		<div>
-			<a href="/exer/signin.jsp"><img alt="" src="images/myinfo.jpg"></a>
+			<a href="/exer/index.jsp"><img alt="" src="images/Login.png"></a>
 		</div>
 	</section>
 	<hr>
@@ -224,7 +230,7 @@ table {
 		<div class=home>
 			<div class=homeImgDiv>
 				<section>
-					<img alt="" src="images/home1/home1_1.png">
+					<img alt="" src="images/home1/home1_1.jpg">
 				</section>
 				<section>
 					<img alt="" src="images/home1/home1_2.png"> <img alt=""
@@ -274,20 +280,21 @@ table {
 						<div class="search__title">
 							특색 있는 숙소와 즐길<br /> 거리를 예약하세요.
 						</div>
+						<form action="/exer/reservationController" method="post">
 						<table>
 							<tr>
 								<td class="search__sub__title">체크인</td>
 								<td class="search__sub__title">체크아웃</td>
 							</tr>
 							<tr>
-								<td><input class="search__input" type="date" /></td>
-								<td><input class="search__input" type="date" /></td>
+								<td><input class="search__input" type="date" name="start_date"/></td>
+								<td><input class="search__input" type="date" name="end_date"/></td>
+							</tr>
+								<tr>
+								<td colspan="2" class="search__sub__title" >인원</td>
 							</tr>
 							<tr>
-								<td colspan="2" class="search__sub__title">인원</td>
-							</tr>
-							<tr>
-								<td colspan="2"><select class="search__input">
+								<td colspan="2" ><select class="search__input" name="personNumber">
 										<option>2</option>
 										<option>3</option>
 										<option>4</option>
@@ -299,7 +306,10 @@ table {
 						<div class="search__button">
 							<button type="submit" style="width: 420px">예약하기</button>
 						</div>
-					</div>
+						<input type="text" style="display: none" name="id" value="<%=id %>">
+						<input type="text" style="display: none" name="home_id" value="<%=home_id %>">
+						</form>
+					</div> 
 				</section>
 			</div>
 

@@ -10,15 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.airbnb.dto.UserDTO;
+import com.airbnb.service.HomeService;
 import com.airbnb.service.UserService;
 
-@WebServlet("/reservation")
-public class reservation extends HttpServlet {
+@WebServlet("/reservationController")
+public class reservationController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UserService userService;
+	private HomeService homeService;
 
-	public reservation() {
-		userService = new UserService();
+	public reservationController() {
+		homeService = new HomeService();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -28,26 +29,28 @@ public class reservation extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("id");
 		String start_date = request.getParameter("start_date");
 		String end_date = request.getParameter("end_date");
 		String personNumber = request.getParameter("personNumber");
+		String user_id = request.getParameter("id");
+		String home_id = request.getParameter("home_id");
 
-		System.out.println("id : " + Integer.parseInt(id));
-		System.out.println("password : " + start_date);
-		System.out.println("tel : " + end_date);
-		System.out.println("email : " + Integer.parseInt(personNumber));
-		// 다른곳으로 한번 더 돌림
-
-		int insertDTO = userService.insertByUser(Integer.parseInt(id), start_date, end_date, Integer.parseInt(personNumber));
+		System.out.println("start_date : " + start_date);
+		System.out.println("end_date : " + end_date);
+		System.out.println("personNumber : " + personNumber);
+		System.out.println("user_id : " + user_id);
+		System.out.println("home_id : " + home_id);
+//		// 다른곳으로 한번 더 돌림
+		int insertDTO = homeService.insertByReservation(start_date, end_date, Integer.parseInt(personNumber), user_id,
+				Integer.parseInt(home_id));
 		System.out.println("insertDTO" + insertDTO);
 		if (insertDTO == 0) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter writer = response.getWriter();
-			writer.println("<script>alert('이미 회원가입된 아이디입니다.'); location.href='/exer/signin.jsp';</script>");	
+			writer.println("<script>alert('예약에 실패하였습니다.'); location.href='/exer/edite.jsp';</script>");
 			writer.close();
 		} else {
-			response.sendRedirect("/exer/signin.jsp");
+			response.sendRedirect("/exer/reservation.jsp");
 		}
 	}
 }
