@@ -72,7 +72,6 @@ a {
 	width: 100px;
 	margin-bottom: 10px;
 }
-
 </style>
 </head>
 <body>
@@ -90,12 +89,16 @@ a {
 				<tr>
 					<td><h3>${reply.content}</h3></td>
 				</tr>
-				<tr>
-					<td><button>
-							<a
-								href="/exer/replyController?action=delete&cid=${reply.id}&user_id=${reply.user_id}&home_id=${reply.home_id}">delete</a>
-						</button></td>
-				</tr>
+				<c:if test="${id eq reply.user_id}">
+
+
+					<tr>
+						<td><button>
+								<a
+									href="/exer/replyController?action=delete&cid=${reply.id}&user_id=${reply.user_id}&home_id=${reply.home_id}">delete</a>
+							</button></td>
+					</tr>
+				</c:if>
 			</table>
 		</c:forEach>
 		<button class=add>
