@@ -231,7 +231,7 @@ table {
 			<form action="/exer/replyController" method="get">
 			<input type="text" style="display: none" name="id" value="<%=id %>">
 			<input type="text" style="display: none" name="home_id" value="<%=home_id %>">
-			<h5>⭐4.85 · <button type="submit" style="border-style:none; color:#5659C2" class="submit"><u>후기 46개</u></button> · ❣ 슈퍼호스트 · 여수시, 전라남도, 한국 <%=home_id %></h5>
+			<h5>⭐4.85 · <button type="submit" style="border-style:none; color:#5659C2" class="submit"><u>후기 46개</u></button> · ❣ 슈퍼호스트 · 여수시, 전라남도, 한국</h5>
 			</form>
 		</div>
 		<div class=home>

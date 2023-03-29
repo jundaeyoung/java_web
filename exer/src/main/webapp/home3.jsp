@@ -225,7 +225,11 @@ table {
 	<section id=body>
 		<div id=title>
 			<h2>이즈 클리프 하우스. 오픈 오션 뷰. 국립공원.</h2>
-			<h5>⭐4.84 · 후기 309개 · 南伊豆町, 静岡県, 일본</h5>
+			<form action="/exer/replyController" method="get">
+			<input type="text" style="display: none" name="id" value="<%=id %>">
+			<input type="text" style="display: none" name="home_id" value="<%=home_id %>">
+			<h5>⭐4.84 · <button type="submit" style="border-style:none; color:#5659C2" class="submit"><u> 후기 309개</u></button> · 南伊豆町, 静岡県, 일본</h5>
+			</form>
 		</div>
 		<div class=home>
 			<div class=homeImgDiv>
@@ -245,6 +249,7 @@ table {
 				<div id=content>
 					<h3>Niseko Mountain Guides 님이 호스팅하는 집</h3>
 					<h5>최대 인원 6명 · 침실 3개 · 침대 5개 · 욕실 1개</h5>
+					
 					<hr>
 
 					<div class=info>

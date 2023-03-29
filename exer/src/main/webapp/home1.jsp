@@ -225,7 +225,11 @@ table {
 	<section id=body>
 		<div id=title>
 			<h2>바다를 보며 지친 몸과 피로를 풀 수 있는 풀빌라201</h2>
-			<h5>⭐4.67 · 후기 3개 · Ganggu-myeon, Yeongdeok-gun, 경상북도, 한국</h5>
+			<form action="/exer/replyController" method="get">
+			<input type="text" style="display: none" name="id" value="<%=id %>">
+			<input type="text" style="display: none" name="home_id" value="<%=home_id %>">
+			<h5>⭐4.67· <button type="submit" style="border-style:none; color:#5659C2" class="submit"><u>후기 3개</u></button> · Ganggu-myeon, Yeongdeok-gun, 경상북도, 한국</h5>
+			</form>
 		</div>
 		<div class=home>
 			<div class=homeImgDiv>
@@ -303,7 +307,7 @@ table {
 								</select></td>
 							</tr>
 						</table>
-						<div class="search__button">
+						<div class="search__button">	
 							<button type="submit" style="width: 420px">예약하기</button>
 						</div>
 						<input type="text" style="display: none" name="id" value="<%=id %>">

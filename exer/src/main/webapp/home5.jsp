@@ -2,9 +2,9 @@
 	pageEncoding="UTF-8"%>
 
 <%
-	String id = (String) session.getAttribute("id");
-	String home_id = "5";
-	session.setAttribute("home_id", home_id);
+String id = (String) session.getAttribute("id");
+String home_id = "5";
+session.setAttribute("home_id", home_id);
 %>
 <!DOCTYPE html>
 <html>
@@ -237,7 +237,7 @@ table {
 						<u>후기 199개</u>
 					</button>
 					· ❣ 슈퍼호스트 · 수영구, 부산, 한국
-					<%=home_id%></h5>
+				</h5>
 			</form>
 		</div>
 		<div class=home>

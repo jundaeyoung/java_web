@@ -225,7 +225,11 @@ table {
 	<section id=body>
 		<div id=title>
 			<h2>아쿠아홀릭 이리타하마 B 윙</h2>
-			<h5>⭐4.91 · 후기 11개 · ❣ 슈퍼호스트 · 시모다, Shizuoka, 일본</h5>
+			<form action="/exer/replyController" method="get">
+			<input type="text" style="display: none" name="id" value="<%=id %>">
+			<input type="text" style="display: none" name="home_id" value="<%=home_id %>">
+			<h5>⭐4.91 · <button type="submit" style="border-style:none; color:#5659C2" class="submit"><u>후기 11개</u></button> · ❣ 슈퍼호스트 · 시모다, Shizuoka, 일본</h5>
+			</form>
 		</div>
 		<div class=home>
 			<div class=homeImgDiv>

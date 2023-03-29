@@ -70,8 +70,9 @@ a {
 
 .add {
 	width: 100px;
-	margin-bottom: 100px;
+	margin-bottom: 10px;
 }
+
 </style>
 </head>
 <body>
@@ -99,6 +100,9 @@ a {
 		</c:forEach>
 		<button class=add>
 			<a href="/exer/insertForm.jsp">추가하기 
+		</button>
+		<button class=add>
+			<a href="/exer/airbnbHomeLogin.jsp">home 
 		</button>
 	</div>
 </body>

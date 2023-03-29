@@ -14,6 +14,8 @@ public class DbHelper {
 	private static final String DB_PASSWORD="1234";
 	
 	private Connection conn;
+	public DbHelper() {
+	}
 	
 	public Connection getConnection() {
 	
