@@ -18,7 +18,6 @@ String home_id = (String) session.getAttribute("home_id");
 	background-color: white;
 	margin: 0;
 	padding: 0;
-
 }
 
 .header {
@@ -59,14 +58,15 @@ input {
 div {
 	flex: 1;
 }
-.home{
+
+.home {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
+
 .home div {
-	
-	max-width:2000px;
+	max-width: 2000px;
 	margin: 10px;
 	display: flex;
 	flex-wrap: wrap;
@@ -75,16 +75,16 @@ div {
 }
 
 #homeinfo {
-	margin:20px 60px;
-	flex-direction:column;
+	margin: 20px 60px;
+	flex-direction: column;
 	display: flex;
 }
 
 #homeinfo {
-	min-width:450px;
-	max-width:500px;
+	min-width: 450px;
+	max-width: 500px;
 	display: flex;
-	flex-direction:column;
+	flex-direction: column;
 	flex: 0 0 1;
 	align-items: flex-start;
 	justify-content: flex-start;
@@ -95,8 +95,9 @@ div {
 <body>
 	<section class="header">
 		<div class="icon">
-			<a href="http://localhost:8080/exer/homeController?action=select&cid=5"><img alt=""
-				src="images/airbnb.jpg"></a>
+			<a
+				href="http://localhost:8080/exer/homeController?action=select&cid=5"><img
+				alt="" src="images/airbnb.jpg"></a>
 		</div>
 		<div class="air"></div>
 		<div>

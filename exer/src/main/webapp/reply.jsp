@@ -105,7 +105,7 @@ a {
 			<a href="/exer/insertForm.jsp">추가하기 
 		</button>
 		<button class=add>
-			<a href="/exer/airbnbHomeLogin.jsp">home 
+			<a href="http://localhost:8080/exer/homeController?action=select&cid=5">home 
 		</button>
 	</div>
 </body>

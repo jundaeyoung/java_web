@@ -43,6 +43,6 @@ a{
 	<img alt="" src="images/airbnbmark.png">
 	<h1> 예약이 확정되었습니다.</h1>
 	<h2>행복한 여행 되십시오.</h2>
-	<a href="/exer/airbnbHomeLogin.jsp"><button type="submit" class="btn btn-primary">Home</button></a>
+	<a href="http://localhost:8080/exer/homeController?action=select&cid=5"><button type="submit" class="btn btn-primary">Home</button></a>
 </body>
 </html>
