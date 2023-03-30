@@ -1,75 +1,87 @@
 package com.airbnb.dao;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.airbnb.dto.HomeDTO;
-import com.airbnb.dto.UserDTO;
 import com.airbnb.utils.DBHelper;
 
-public class HomeDAO implements IHomeDAO{
-
+public class HomeDAO implements IHomeDAO {
 	private Connection conn;
-	private PreparedStatement pstmt;
-	private ResultSet rs;
-	
+	private DBHelper dbHelper;
+
 	public HomeDAO() {
-		conn = DBHelper.getInstance().getConnection();
+		dbHelper = new DBHelper();
+		conn = dbHelper.getConnection();
 	}
-	
+
 	@Override
-	public HomeDTO select(String user_id) {
-		HomeDTO homeDTO = null;
-		homeDTO = new HomeDTO();
-		
-		String query = " SELECT * FROM reservation "
-				+ " WHERE user_id = ? ";
+	public ArrayList<HomeDTO> select() {
+		ArrayList<HomeDTO> list = new ArrayList<>();
+
+		String strQry = " SELECT * FROM home ";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
 		try {
-			pstmt=conn.prepareStatement(query);
-			pstmt.setString(1, user_id);
+			pstmt = conn.prepareStatement(strQry);
 			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				homeDTO.setId(rs.getInt("id"));
-				homeDTO.setStart_date(rs.getString("start_date"));
-				homeDTO.setEnd_date(rs.getString("end_date"));
-				homeDTO.setPersonNumber(rs.getInt("personNumber"));
-				homeDTO.setUser_id(rs.getString("user_id"));
-				homeDTO.setHome_id(rs.getInt("home_id"));
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String price = rs.getString("price");
+				String name = rs.getString("name");
+				String day = rs.getString("day");
+				String view = rs.getString("view");
+				HomeDTO dto = new HomeDTO(id, price, name, day, view);
+				list.add(dto);
 			}
 		} catch (SQLException e) {
-			System.out.println("select 에러 발생");
 			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
-		return homeDTO;
+		return list;
 	}
+
 	@Override
-	public int insert(String start_date,String end_date,int personNumber,String user_id,int home_id){
-		int resultRow = 0 ; 
-		String sql = " INSERT INTO reservation(start_date,end_date,personNumber,user_id,home_id) "
-				+ " VALUES "
-				+ "	( ? , ? , ? , ? , ? ) ";
+	public ArrayList<HomeDTO> search(String search) {
+		ArrayList<HomeDTO> list = new ArrayList<>();
+
+		String strQry = " SELECT * FROM home WHERE name like ?  ";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
 		try {
-			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, start_date);
-			pstmt.setString(2, end_date);
-			pstmt.setInt(3, personNumber);
-			pstmt.setString(4, user_id);
-			pstmt.setInt(5, home_id);
-			resultRow = pstmt.executeUpdate();
+			pstmt = conn.prepareStatement(strQry);
+			pstmt.setString(1,"%" + search + "%");
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String price = rs.getString("price");
+				String name = rs.getString("name");
+				String day = rs.getString("day");
+				String view = rs.getString("view");
+				HomeDTO dto = new HomeDTO(id, price, name, day, view);
+				System.out.println(list);
+				list.add(dto);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
-		
-		return resultRow;
+		return list;
 	}
-
-	@Override
-	public int delete() {
-		return 0;
-	}
-
 
 }

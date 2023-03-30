@@ -35,7 +35,7 @@ public class UserUpdateController extends HttpServlet {
 		String password = request.getParameter("password");
 		String tel = request.getParameter("tel");
 		String email = request.getParameter("email");
-		UserDTO responseDTO = userService.selectByUserId(id);
+		UserDTO responseDTO = userService.selectByUserId((String) request.getSession().getAttribute("id"));
 		String targetId = responseDTO.getId();
 
 		System.out.println("id : " + id);
@@ -55,7 +55,7 @@ public class UserUpdateController extends HttpServlet {
 			}else {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter writer = response.getWriter();
-				writer.println("<script>alert('정보수정이 성공하였습니다.'); location.href='/exer/airbnbHomeLogin.jsp';</script>");
+				writer.println("<script>alert('정보수정이 성공하였습니다.'); location.href='http://localhost:8080/exer/homeController?action=select&cid=5';</script>");
 				writer.close();
 			}
 		}

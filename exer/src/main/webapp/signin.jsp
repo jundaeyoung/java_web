@@ -19,11 +19,14 @@ if (id != null && password != null) {
 		// 세션에 사용자 이름 저장
 		session.setAttribute("id", id);
 		session.setAttribute("password", password);
+		PrintWriter writer = response.getWriter();
+		writer.println("<script>alert('로그인 되었습니다'); location.href='http://localhost:8080/exer/homeController?action=select&cid=5';</script>");	
+		writer.close();
 		response.sendRedirect("airbnbHomeLogin.jsp");
 	} else {
 		// login 실패
 		PrintWriter writer = response.getWriter();
-		writer.println("<script>alert('아이디,비밀번호가 일치하지 않습니다 확인해주세요.'); location.href='/exer/signin.jsp';</script>");	
+		writer.println("<script>alert('아이디,비밀번호가 일치하지 않습니다 확인해주세요'); location.href='/exer/signin.jsp';</script>");	
 		writer.close();
 	}
 }

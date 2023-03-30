@@ -1,5 +1,5 @@
-<%@page import="com.airbnb.dto.HomeDTO"%>
-<%@page import="com.airbnb.service.HomeService"%>
+<%@page import="com.airbnb.dto.ReservationDTO"%>
+<%@page import="com.airbnb.service.ReservationService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 

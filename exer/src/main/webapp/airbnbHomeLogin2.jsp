@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>airbnb</title>
- <link rel="shortcut icon" sizes="76x76" type="image/x-icon"
+<link rel="shortcut icon" sizes="76x76" type="image/x-icon"
         href="https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico">
 <style type="text/css">
 * {
@@ -59,6 +59,7 @@ div {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	
 }
 
 .home div {
@@ -67,67 +68,68 @@ div {
 
 .home div {
 	flex: 1;
+}
+.login{
 }
 </style>
+
 </head>
 <body>
 	<section class="header">
 		<div class="icon">
-			<a href="/exer/airbnbHome.jsp"><img alt="" src="images/airbnb.jpg"></a>
+			<a href="http://localhost:8080/exer/homeController?action=select&cid=5"><img alt="" src="images/airbnb.jpg"></a>
 		</div>
 		<div class="air"></div>
 		<div>
 			<form action="/exer/searchcontroller" method="POST" class="serch">
-				<input type="text" name="search"
-					style="border-radius: 20px; width: 300px;"
-					placeholder="어디든지 | 언제든 일주일 | 게스트추가">
-				<button type="submit" style="border: none">
-					<img alt="" src="images/search.png" style="height: 45px">
-				</button>
+				<input type="text" name = "search" style="border-radius: 20px; width: 300px;"
+					placeholder="어디든지 | 언제든 일주일 | 게스트추가"> <button type="submit" style="border: none"><img
+					alt="" src="images/search.png" style="height:45px"></button>
 
 			</form>
 		</div>
 		<div>당신의 공간을 에어비엔비하세요</div>
 		<div>
-			<a href="/exer/signin.jsp"><img alt="" src="images/myinfo.jpg"></a>
+			<a href="/exer/index.jsp"><img alt="" src="images/Login.png" class="login"></a>
 		</div>
 	</section>
 	<hr>
 	<section class="list">
 		<form action="" method="GET" class="serch">
 			<div>
-				<a href="/exer/error.jsp"><img alt="" src="images/list1.jpg"></a>
+				<a href="/exer/errorPage.jsp"><img alt="" src="images/list1.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/error.jsp"><img alt="" src="images/list2.jpg"></a>
+				<a href="/exer/errorPage.jsp"><img alt="" src="images/list2.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/error.jsp"><img alt="" src="images/list3.jpg"></a>
+				<a href="/exer/errorPage.jsp"><img alt="" src="images/list3.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/error.jsp"><img alt="" src="images/list4.jpg"></a>
+				<a href="/exer/errorPage.jsp"><img alt="" src="images/list4.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/error.jsp"><img alt="" src="images/list5.jpg"></a>
+				<a href="/exer/errorPage.jsp"><img alt="" src="images/list5.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/error.jsp"><img alt="" src="images/list6.jpg"></a>
+				<a href="/exer/errorPage.jsp"><img alt="" src="images/list6.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/error.jsp"><img alt="" src="images/list7.jpg"></a>
+				<a href="/exer/errorPage.jsp"><img alt="" src="images/list7.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/error.jsp"><img alt="" src="images/list8.jpg"></a>
+				<a href="/exer/errorPage.jsp"><img alt="" src="images/list8.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/error.jsp"><img alt="" src="images/list9.jpg"></a>
+				<a href="/exer/errorPage.jsp"><img alt="" src="images/list9.jpg"></a>
 			</div>
 		</form>
 	</section>
 	<section class="home">
 		<div>
 			<form action="" method="GET" class="serch">
-				<a href="/exer/error.jsp"><img
+				<a
+					href="/exer/home1.jsp"><img
 					alt="" src="images/home1.png" style="border-radius: 20px">
 					<p>Ganggu-myeon, Yeongdeok-gun,한국</p>
 					<p>바다 전망</p>
@@ -138,7 +140,7 @@ div {
 		<div>
 			<form action="" method="GET" class="serch">
 				<a
-					href="/exer/error.jsp"><img
+					href="/exer/home2.jsp"><img
 					alt="" src="images/home2.png" style="border-radius: 20px">
 					<p>Niseko, Abuta District, Hokkaido, 일본</p>
 					<p>산 전망</p>
@@ -149,7 +151,7 @@ div {
 		<div>
 			<form action="" method="GET" class="serch">
 				<a
-					href="/exer/error.jsp"><img
+					href="/exer/home3.jsp"><img
 					alt="" src="images/home5.png" style="border-radius: 20px">
 					<p>南伊豆町, 静岡県, 일본</p>
 					<p>산 전망</p>
@@ -159,10 +161,11 @@ div {
 		</div>
 	</section>
 	<section class="home">
+
 		<div>
 			<form action="" method="GET" class="serch">
 				<a
-					href="/exer/error.jsp"><img
+					href="/exer/home4.jsp"><img
 					alt="" src="images/home3.png" style="border-radius: 20px">
 					<p>시모다, 일본</p>
 					<p>바다 전망</p>
@@ -173,7 +176,7 @@ div {
 		<div>
 			<form action="" method="GET" class="serch">
 				<a
-					href="/exer/error.jsp"><img
+					href="/exer/home5.jsp"><img
 					alt="" src="images/home4.png" style="border-radius: 20px">
 					<p>수영구, 한국</p>
 					<p>해변 및 바다 전망</p>
@@ -184,7 +187,7 @@ div {
 		<div>
 			<form action="" method="GET" class="serch">
 				<a
-					href="/exer/error.jsp"><img
+					href="/exer/home6.jsp"><img
 					alt="" src="images/home6.png" style="border-radius: 20px">
 					<p>여수시, 전라남도, 한국</p>
 					<p>시티 전망</p>
@@ -193,5 +196,7 @@ div {
 			</form>
 		</div>
 	</section>
+	<% if(session.getAttribute("id")!=null){ %>
+		<%}%>
 </body>
 </html>

@@ -1,6 +1,9 @@
 package com.airbnb.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
+
+import com.airbnb.dao.HomeDAO;
+import com.airbnb.dto.HomeDTO;
 
 /**
  * Servlet implementation class UserController
@@ -26,14 +32,26 @@ public class SearchController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HomeDAO dao = new HomeDAO();
 		request.setCharacterEncoding("UTF-8");
-		String search = request.getParameter("search");
 		HttpSession session = request.getSession();
-		System.out.println(session.getAttribute("id"));
-		System.out.println(session.getAttribute("password"));
+		String cid = request.getParameter("id");
+		String price = request.getParameter("price");
+		String name = request.getParameter("name");
+		String day = request.getParameter("day");
+		String view = request.getParameter("view");
+		String action = request.getParameter("action");
+		String search = request.getParameter("search");
 		System.out.println("search : " + search);
-		// 다른곳으로 한번 더 돌림
-		response.sendRedirect("airbnbHomeLogin.jsp");
+		if("delete".equals(action)) {
+		}else {
+			
+		ArrayList<HomeDTO> resultlist = dao.search(search);
+		System.out.println(resultlist+"resultliset");
+		request.setAttribute("list", resultlist);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("airbnbHomeLogin.jsp");
+		dispatcher.forward(request, response);
+		}
 //		if(request.getSession().getAttribute("id").equals("jdy1787") && request.getSession().getAttribute("password").equals("1234")) {
 //		}else {
 //			response.sendRedirect("airbnbHome.jsp");

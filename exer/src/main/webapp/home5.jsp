@@ -208,7 +208,7 @@ table {
 <body>
 	<section class="header">
 		<div class="icon">
-			<a href="/exer/airbnbHomeLogin.jsp"><img alt=""
+			<a href="http://localhost:8080/exer/homeController?action=select&cid=5"><img alt=""
 				src="images/airbnb.jpg"></a>
 		</div>
 		<div class="air"></div>

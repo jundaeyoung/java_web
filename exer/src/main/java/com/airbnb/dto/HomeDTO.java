@@ -1,68 +1,57 @@
 package com.airbnb.dto;
 
 public class HomeDTO {
-
-	private int id;
-	private String start_date;
-	private String end_date;
-	private int personNumber;
-	private String user_id;
-	private int home_id;
-
+	int id;
+	String price;
+	String name;
+	String day;
+	String view;
+	
+	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getDay() {
+		return day;
+	}
+	public void setDay(String day) {
+		this.day = day;
+	}
+	public String getView() {
+		return view;
+	}
+	public void setView(String view) {
+		this.view = view;
+	}
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public String getUser_id() {
-		return user_id;
+	public String getPrice() {
+		return price;
 	}
-
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+	public void setPrice(String price) {
+		this.price = price;
 	}
-
-	public String getStart_date() {
-		return start_date;
+	public HomeDTO(int id, String price, String name, String day, String view) {
+		super();
+		this.id = id;
+		this.price = price;
+		this.name = name;
+		this.day = day;
+		this.view = view;
 	}
-
-	public void setStart_date(String start_date) {
-		this.start_date = start_date;
-	}
-
-	public String getEnd_date() {
-		return end_date;
-	}
-
-	public void setEnd_date(String end_date) {
-		this.end_date = end_date;
-	}
-
-	public int getPersonNumber() {
-		return personNumber;
-	}
-
-	public void setPersonNumber(int personNumber) {
-		this.personNumber = personNumber;
-	}
-
-	public int getHome_id() {
-		return home_id;
-	}
-
-	public void setHome_id(int home_id) {
-		this.home_id = home_id;
-	}
-
 	@Override
 	public String toString() {
-		return "HomeDTO [id=" + id + ", start_date=" + start_date + ", end_date=" + end_date + ", personNumber="
-				+ personNumber + ", user_id=" + user_id + ", home_id=" + home_id + "]";
+		return "HomeDTO [id=" + id + ", price=" + price + ", name=" + name + ", day=" + day + ", view=" + view + "]";
 	}
-
-	public HomeDTO() {
-	}
+	
+	
+	
 }

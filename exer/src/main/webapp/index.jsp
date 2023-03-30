@@ -63,7 +63,7 @@
 	<form action="/exer/logout.jsp">
 	<button type="submit" class="btn btn-primary">Logout</button>
 	</form>
-	<form action="/exer//airbnbHomeLogin.jsp">
+	<form action="http://localhost:8080/exer/homeController?action=select&cid=5">
 	<button type="submit" class="btn btn-primary">Home</button>
 	</form>
 </body>

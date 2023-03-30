@@ -51,6 +51,10 @@ public class UserSignUpController extends HttpServlet {
 			writer.println("<script>alert('이미 회원가입된 아이디입니다.'); location.href='/exer/signin.jsp';</script>");	
 			writer.close();
 		} else {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter writer = response.getWriter();
+			writer.println("<script>alert('회원가입 되었습니다.'); location.href='/exer/signin.jsp';</script>");	
+			writer.close();
 			response.sendRedirect("/exer/signin.jsp");
 		}
 	}

@@ -55,10 +55,10 @@
 		감사합니다
 	</p>
 	<div>
-	<form action="/exer/airbnbHomeLogin.jsp">
+	<form action="http://localhost:8080/exer/homeController?action=select&cid=5">
 	<input type="submit" value="메인으로">
 	</form>
-	<form action="/exer/airbnbHomeLogin.jsp">
+	<form action="http://localhost:8080/exer/homeController?action=select&cid=5">
 	<input type="submit" value = "이전페이지">
 	</form>
 	</div>

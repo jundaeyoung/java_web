@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.airbnb.dto.UserDTO;
-import com.airbnb.service.HomeService;
+import com.airbnb.service.ReservationService;
 import com.airbnb.service.UserService;
 
 @WebServlet("/reservationController")
 public class reservationController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private HomeService homeService;
+	private ReservationService homeService;
 
 	public reservationController() {
-		homeService = new HomeService();
+		homeService = new ReservationService();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -47,7 +47,7 @@ public class reservationController extends HttpServlet {
 		if (insertDTO == 0) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter writer = response.getWriter();
-			writer.println("<script>alert('예약에 실패하였습니다.'); location.href='/exer/edite.jsp';</script>");
+			writer.println("<script>alert('예약에 실패하였습니다.'); location.href='http://localhost:8080/exer/homeController?action=select&cid=5';</script>");
 			writer.close();
 		} else {
 			response.sendRedirect("/exer/reservation.jsp");
