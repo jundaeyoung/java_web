@@ -134,5 +134,28 @@ public class ReplyDAO implements IReplyDAO{
 		return resultRowCount;
 	}
 
+	@Override
+	public ReplyDTO count(int home_id) {
+		ReplyDTO replyDTO = null;
+		replyDTO = new ReplyDTO();
+		
+		String qryStr=" SELECT count(*) AS coment FROM reply "
+				+ " WHERE home_id= ? ";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt=conn.prepareStatement(qryStr);
+			pstmt.setInt(1, home_id);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				replyDTO.setComent(rs.getInt("coment"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return replyDTO;
+	}
+
 	
 }

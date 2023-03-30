@@ -129,7 +129,7 @@ div {
 			<form action="" method="GET" class="serch">
 				<a
 					href="/exer/error.jsp"><img
-					alt="" src="images/home1.jpg" style="border-radius: 20px">
+					alt="" src="images/home1.png" style="border-radius: 20px">
 					<p>Ganggu-myeon, Yeongdeok-gun,한국</p>
 					<p>바다 전망</p>
 					<p>3월 20일~25일</p>
@@ -140,7 +140,7 @@ div {
 			<form action="" method="GET" class="serch">
 				<a
 					href="/exer/error.jsp"><img
-					alt="" src="images/home2.jpg" style="border-radius: 20px">
+					alt="" src="images/home2.png" style="border-radius: 20px">
 					<p>Niseko, Abuta District, Hokkaido, 일본</p>
 					<p>산 전망</p>
 					<p>3월 21일~26일</p>
@@ -151,7 +151,7 @@ div {
 			<form action="" method="GET" class="serch">
 				<a
 					href="/exer/error.jsp"><img
-					alt="" src="images/home5.jpg" style="border-radius: 20px">
+					alt="" src="images/home5.png" style="border-radius: 20px">
 					<p>南伊豆町, 静岡県, 일본</p>
 					<p>산 전망</p>
 					<p>3월 23일~26일</p>
@@ -164,7 +164,7 @@ div {
 			<form action="" method="GET" class="serch">
 				<a
 					href="/exer/error.jsp"><img
-					alt="" src="images/home3.jpg" style="border-radius: 20px">
+					alt="" src="images/home3.png" style="border-radius: 20px">
 					<p>시모다, 일본</p>
 					<p>바다 전망</p>
 					<p>3월 20일~25일</p>
@@ -175,7 +175,7 @@ div {
 			<form action="" method="GET" class="serch">
 				<a
 					href="/exer/error.jsp"><img
-					alt="" src="images/home4.jpg" style="border-radius: 20px">
+					alt="" src="images/home4.png" style="border-radius: 20px">
 					<p>수영구, 한국</p>
 					<p>해변 및 바다 전망</p>
 					<p>3월 26일~5월 1일</p>
@@ -186,7 +186,7 @@ div {
 			<form action="" method="GET" class="serch">
 				<a
 					href="/exer/error.jsp"><img
-					alt="" src="images/home6.jpg" style="border-radius: 20px">
+					alt="" src="images/home6.png" style="border-radius: 20px">
 					<p>여수시, 전라남도, 한국</p>
 					<p>시티 전망</p>
 					<p>4월 3일~4월 8일</p>

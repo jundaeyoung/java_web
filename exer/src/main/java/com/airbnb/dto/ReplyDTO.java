@@ -6,7 +6,15 @@ public class ReplyDTO {
 	int home_id;
 	String content;
 	String date;
+	int coment;
 	
+	
+	public int getComent() {
+		return coment;
+	}
+	public void setComent(int coment) {
+		this.coment = coment;
+	}
 	public int getId() {
 		return id;
 	}

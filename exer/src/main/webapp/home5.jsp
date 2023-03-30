@@ -1,3 +1,5 @@
+<%@page import="com.airbnb.dto.ReplyDTO"%>
+<%@page import="com.airbnb.service.ComentService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -5,6 +7,10 @@
 String id = (String) session.getAttribute("id");
 String home_id = "5";
 session.setAttribute("home_id", home_id);
+ComentService comentService = new ComentService();
+
+ReplyDTO replyDTO = comentService.comentCount(Integer.parseInt(home_id));
+int comentCount = replyDTO.getComent();
 %>
 <!DOCTYPE html>
 <html>
@@ -234,7 +240,7 @@ table {
 					⭐4.94 ·
 					<button type="submit" style="border-style: none; color: #5659C2"
 						class="submit">
-						<u>후기 199개</u>
+						<u>후기 <%=comentCount%>개</u>
 					</button>
 					· ❣ 슈퍼호스트 · 수영구, 부산, 한국
 				</h5>
