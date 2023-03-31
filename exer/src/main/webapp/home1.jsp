@@ -10,7 +10,10 @@
 	ComentService comentService = new ComentService();
 	
 	ReplyDTO replyDTO = comentService.comentCount(Integer.parseInt(home_id));
+	ReplyDTO replyDTO1 = comentService.ratingCount(Integer.parseInt(home_id));
+	
 	int comentCount = replyDTO.getComent();
+	double rating = replyDTO1.getRating();
 %>
 <!DOCTYPE html>
 <html>
@@ -207,7 +210,7 @@ table {
 <body>
 	<section class="header">
 		<div class="icon">
-			<a href="http://localhost:8080/exer/homeController?action=select&cid=5"><img alt=""
+			<a href="http://localhost:8080/exer/homeController?action=select&home_id=${home.id}"><img alt=""
 				src="images/airbnb.jpg"></a>
 		</div>
 		<div class="air"></div>
@@ -234,7 +237,7 @@ table {
 			<form action="/exer/replyController" method="get">
 			<input type="text" style="display: none" name="id" value="<%=id %>">
 			<input type="text" style="display: none" name="home_id" value="<%=home_id %>">
-			<h5>⭐4.67· <button type="submit" style="border-style:none; color:#5659C2" class="submit"><u>후기 <%=comentCount%>개</u></button> · Ganggu-myeon, Yeongdeok-gun, 경상북도, 한국</h5>
+			<h5>⭐ <%=rating%> · <button type="submit" style="border-style:none; color:#5659C2" class="submit"><u>후기 <%=comentCount%>개</u></button> · Ganggu-myeon, Yeongdeok-gun, 경상북도, 한국</h5>
 			</form>
 		</div>
 		<div class=home>

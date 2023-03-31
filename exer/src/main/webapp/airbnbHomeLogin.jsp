@@ -160,6 +160,7 @@ div {
 					<a href="/exer/home${home.id}.jsp"> <img alt=""
 						src="images/home${home.id}.png" style="border-radius: 20px">
 					</a>
+					<p>${home.id}</p>
 					<p>${home.name}</p>
 					<p>${home.view}</p>
 					<p>${home.day}</p>
@@ -168,11 +169,5 @@ div {
 			</c:forEach>
 		</div>
 	</section>
-	<%
-	if (session.getAttribute("id") != null) {
-	%>
-	<%
-	}
-	%>
 </body>
 </html>

@@ -159,5 +159,31 @@ public class ReplyDAO implements IReplyDAO{
 		return replyDTO;
 	}
 
+	@Override
+	public ReplyDTO rating(int home_id) {
+		ReplyDTO replyDTO = null;
+		replyDTO = new ReplyDTO();
+		
+		String qryStr=" SELECT round(avg(rating),2)AS rating FROM reply "
+				+ "	WHERE home_id= ?  ";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt=conn.prepareStatement(qryStr);
+			pstmt.setInt(1, home_id);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				replyDTO.setRating(rs.getFloat("rating"));
+				System.out.println(replyDTO+"DDDD");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return replyDTO;
+	}
+
+	
+
 	
 }

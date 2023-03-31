@@ -84,5 +84,5 @@ public class HomeDAO implements IHomeDAO {
 		}
 		return list;
 	}
-
+	
 }

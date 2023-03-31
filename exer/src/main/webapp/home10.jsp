@@ -1,11 +1,11 @@
-<%@page import="com.airbnb.dto.ReplyDTO"%>
 <%@page import="com.airbnb.service.ComentService"%>
+<%@page import="com.airbnb.dto.ReplyDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
 <%
 	String id = (String) session.getAttribute("id");
-	String home_id = "7";
+	String home_id = "1";
 	session.setAttribute("home_id", home_id);
 	ComentService comentService = new ComentService();
 	
@@ -64,8 +64,8 @@ input {
 }
 
 #title {
-	align-items: flex-start;
-	margin-left: -230px;
+	align-items: start;
+	margin-right: 200px;
 }
 
 h2, h5 {
@@ -206,9 +206,6 @@ table {
 	border: 0;
 	cursor: pointer;
 }
-.submit:hover{
-	cursor: pointer;
-}
 </style>
 <body>
 	<section class="header">
@@ -236,53 +233,53 @@ table {
 	<hr>
 	<section id=body>
 		<div id=title>
-			<h2>레트로 감성카라반 에어스트림, 비치보이스_Boy25</h2>
+			<h2>바다를 보며 지친 몸과 피로를 풀 수 있는 풀빌라201</h2>
 			<form action="/exer/replyController" method="get">
 			<input type="text" style="display: none" name="id" value="<%=id %>">
 			<input type="text" style="display: none" name="home_id" value="<%=home_id %>">
-			<h5>⭐ <%=rating%> · <button type="submit" style="border-style:none; color:#5659C2" class="submit"><u>후기 <%=comentCount%>개</u></button> · ❣ 슈퍼호스트 · 애월읍, 제주시, 제주도, 한국</h5>
+			<h5>⭐ <%=rating%> · <button type="submit" style="border-style:none; color:#5659C2" class="submit"><u>후기 <%=comentCount%>개</u></button> · Ganggu-myeon, Yeongdeok-gun, 경상북도, 한국</h5>
 			</form>
 		</div>
 		<div class=home>
 			<div class=homeImgDiv>
 				<section>
-					<img alt="" src="images/home7/home7_1.png">
+					<img alt="" src="images/home1/home1_1.jpg">
 				</section>
 				<section>
-					<img alt="" src="images/home7/home7_2.png"> <img alt=""
-						src="images/home7/home7_3.png">
+					<img alt="" src="images/home1/home1_2.png"> <img alt=""
+						src="images/home1/home1_3.png">
 				</section>
 				<section>
-					<img alt="" src="images/home7/home7_4.png"> <img alt=""
-						src="images/home7/home7_5.png">
+					<img alt="" src="images/home1/home1_4.png"> <img alt=""
+						src="images/home1/home1_5.png">
 				</section>
 			</div>
 			<div id=explanation>
 				<div id=content>
-					<h3>BeachRiad 님이 호스팅하는 캠핑카</h3>
-					<h5>최대 인원 2명 · 침실 1개 · 침대 1개 · 욕실 1개</h5>
+					<h3>Onda 님이 호스팅하는 펜션</h3>
+					<h5>최대 인원 6명 · 침대 2개 · 욕실 1개</h5>
 					<hr>
 
 					<div class=info>
 						<div>
-							<img alt="" src="images/home1/desk.png" style="height:40px; margin-top: 10px;">
-							<div>
-								업무 전용 공간
-								<h6>와이파이가 제공되어 업무를 보기에 적합한 방입니다.</h6>
-							</div>
-						</div>
-						<div>
-							<img alt="" src="images/home1/checkin.png" style="height:43px; margin-top: 8px; margin-left: -3px;">
+							<img alt="" src="images/home1/checkin.png">
 							<div>
 								셀프 체크인
-								<h6>키패드를 이용해 체크인하세요.</h6>
+								<h6>안내 직원의 도움을 받아 체크인하실 수 있어요.</h6>
 							</div>
 						</div>
 						<div>
-							<img alt="" src="images/home1/key.png" style="height:40px; margin-top: 15px;">
+							<img alt="" src="images/home1/play.png">
 							<div>
-								순조로운 체크인 과정
-								<h6>최근 숙박한 게스트 중 90%가 체크인 과정에 별점 5점을 준 숙소입니다.</h6>
+								마음껏 물놀이를 즐기세요
+								<h6>해당 지역에서 수영장을 갖춘 몇 안 되는 숙소 중 하나입니다.</h6>
+							</div>
+						</div>
+						<div>
+							<img alt="" src="images/home1/star.png">
+							<div>
+								경험이 풍부한 호스트
+								<h6>Onda님은 다른 숙소에 대해 32개의 후기가 있습니다.</h6>
 							</div>
 						</div>
 						<hr>
@@ -319,13 +316,13 @@ table {
 								</select></td>
 							</tr>
 						</table>
-						<div class="search__button">
+						<div class="search__button">	
 							<button type="submit" style="width: 420px">예약하기</button>
 						</div>
 						<input type="text" style="display: none" name="id" value="<%=id %>">
 						<input type="text" style="display: none" name="home_id" value="<%=home_id %>">
 						</form>
-					</div>
+					</div> 
 				</section>
 			</div>
 

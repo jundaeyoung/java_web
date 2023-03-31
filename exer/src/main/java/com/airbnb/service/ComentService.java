@@ -14,4 +14,8 @@ public class ComentService {
 		ReplyDTO resultDTO = replyDAO.count(home_id);
 		return resultDTO;
 	}
+	public ReplyDTO ratingCount(int home_id) {
+		ReplyDTO resultDTO = replyDAO.rating(home_id);
+		return resultDTO;
+	}
 }

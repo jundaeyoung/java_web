@@ -10,7 +10,10 @@
 	ComentService comentService = new ComentService();
 	
 	ReplyDTO replyDTO = comentService.comentCount(Integer.parseInt(home_id));
+	ReplyDTO replyDTO1 = comentService.ratingCount(Integer.parseInt(home_id));
+	
 	int comentCount = replyDTO.getComent();
+	double rating = replyDTO1.getRating();
 %>
 <!DOCTYPE html>
 <html>
@@ -237,7 +240,7 @@ table {
 			<form action="/exer/replyController" method="get">
 			<input type="text" style="display: none" name="id" value="<%=id %>">
 			<input type="text" style="display: none" name="home_id" value="<%=home_id %>">
-			<h5>⭐4.85 · <button type="submit" style="border-style:none; color:#5659C2" class="submit"><u>후기 <%=comentCount%>개</u></button> · ❣ 슈퍼호스트 · 여수시, 전라남도, 한국</h5>
+			<h5>⭐ <%=rating%> · <button type="submit" style="border-style:none; color:#5659C2" class="submit"><u>후기 <%=comentCount%>개</u></button> · ❣ 슈퍼호스트 · 여수시, 전라남도, 한국</h5>
 			</form>
 		</div>
 		<div class=home>

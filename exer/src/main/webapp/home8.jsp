@@ -5,12 +5,15 @@
 
 <%
 String id = (String) session.getAttribute("id");
-String home_id = "5";
+String home_id = "8";
 session.setAttribute("home_id", home_id);
 ComentService comentService = new ComentService();
 
 ReplyDTO replyDTO = comentService.comentCount(Integer.parseInt(home_id));
+ReplyDTO replyDTO1 = comentService.ratingCount(Integer.parseInt(home_id));
+
 int comentCount = replyDTO.getComent();
+double rating = replyDTO1.getRating();
 %>
 <!DOCTYPE html>
 <html>
@@ -237,7 +240,7 @@ table {
 				<input type="text" style="display: none" name="home_id"
 					value="<%=home_id%>">
 				<h5>
-					⭐5.0 ·
+					⭐ <%=rating%> ·
 					<button type="submit" style="border-style: none; color: #5659C2"
 						class="submit">
 						<u>후기 <%=comentCount%>개</u>
