@@ -89,8 +89,11 @@ div {
 	align-items: flex-start;
 	justify-content: flex-start;
 }
+#homeinfo #id{
+	border: none;
 
-#homeinfo a:hover img {
+}
+#homeinfo #id:hover img {
 	transform: scale(1.01);
 }
 </style>
@@ -156,11 +159,10 @@ div {
 	<section class="home">
 		<div>
 			<c:forEach var="home" items="${list}">
-				<form action="" method="GET" class="serch " id="homeinfo">
-					<a href="/exer/home${home.id}.jsp"> <img alt=""
+				<form action="/exer/homeInfoController" name="home_id" method="GET" class="serch " id="homeinfo">
+					<button type="submit" name="id" value="${home.id}" id="id"> <img alt=""
 						src="images/home${home.id}.png" style="border-radius: 20px">
-					</a>
-					<p>${home.id}</p>
+					</button>
 					<p>${home.name}</p>
 					<p>${home.view}</p>
 					<p>${home.day}</p>

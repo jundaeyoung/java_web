@@ -123,9 +123,6 @@ a {
 					<td><h3>${reply.content}</h3></td>
 				</tr>
 				<tr>
-					<td><h3>${reply.rating}</h3></td>
-				</tr>
-				<tr>
 					<td>
 						<div class="star-ratings">
 							<div class="star-ratings-fill space-x-2 text-lg"

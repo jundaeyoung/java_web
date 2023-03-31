@@ -1,19 +1,46 @@
+<%@page import="com.airbnb.service.homeInfoService"%>
+<%@page import="com.airbnb.dto.HomeInfoDTO"%>
 <%@page import="com.airbnb.service.ComentService"%>
 <%@page import="com.airbnb.dto.ReplyDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
-	String id = (String) session.getAttribute("id");
-	String home_id = "1";
-	session.setAttribute("home_id", home_id);
-	ComentService comentService = new ComentService();
-	
-	ReplyDTO replyDTO = comentService.comentCount(Integer.parseInt(home_id));
-	ReplyDTO replyDTO1 = comentService.ratingCount(Integer.parseInt(home_id));
-	
-	int comentCount = replyDTO.getComent();
-	double rating = replyDTO1.getRating();
+%>
+<%
+String id = (String) session.getAttribute("id");
+String home_id = (String) request.getAttribute("home_id");
+System.out.println(home_id + "제발젭");
+ComentService comentService = new ComentService();
+homeInfoService homeInfoService = new homeInfoService();
+
+HomeInfoDTO homeInfo = homeInfoService.homeInfoSelect(Integer.parseInt(home_id)); 
+
+ReplyDTO replyDTO = comentService.comentCount(Integer.parseInt(home_id));
+ReplyDTO replyDTO1 = comentService.ratingCount(Integer.parseInt(home_id));
+
+int comentCount = replyDTO.getComent();
+String rating = replyDTO1.getRating();
+
+HomeInfoDTO homeInfoDTO = homeInfoService.homeInfoSelect(Integer.parseInt(home_id));
+String title = homeInfoDTO.getTitle();
+String location = homeInfoDTO.getLocation();
+String image1 = homeInfoDTO.getImage1();
+String image2 = homeInfoDTO.getImage2();
+String image3 = homeInfoDTO.getImage3();
+String image4 = homeInfoDTO.getImage4();
+String image5 = homeInfoDTO.getImage5();
+String host = homeInfoDTO.getHost();
+String info = homeInfoDTO.getInfo();
+String sideimage1 = homeInfoDTO.getSideimage1();
+String sideInfo1 = homeInfoDTO.getSideInfo1();
+String sideInfo1_1 = homeInfoDTO.getSideInfo1_1();
+String sideimage2 = homeInfoDTO.getSideimage2();
+String sideInfo2 = homeInfoDTO.getSideInfo2();
+String sideInfo2_1 = homeInfoDTO.getSideInfo2_1();
+String sideimage3 = homeInfoDTO.getImage3();
+String sideInfo3 = homeInfoDTO.getSideInfo3();
+String sideInfo3_1 = homeInfoDTO.getSideInfo3_1();
 %>
 <!DOCTYPE html>
 <html>
@@ -91,8 +118,9 @@ h2, h5 {
 	display: flex;
 	flex-direction: column;
 }
-#content h5{
-	margin-left: 1px; 
+
+#content h5 {
+	margin-left: 1px;
 }
 
 .info div {
@@ -210,8 +238,9 @@ table {
 <body>
 	<section class="header">
 		<div class="icon">
-			<a href="http://localhost:8080/exer/homeController?action=select&cid=5"><img alt=""
-				src="images/airbnb.jpg"></a>
+			<a
+				href="http://localhost:8080/exer/homeController?action=select&cid=5"><img
+				alt="" src="images/airbnb.jpg"></a>
 		</div>
 		<div class="air"></div>
 		<div>
@@ -233,53 +262,64 @@ table {
 	<hr>
 	<section id=body>
 		<div id=title>
-			<h2>바다를 보며 지친 몸과 피로를 풀 수 있는 풀빌라201</h2>
+			<h2><%=title%></h2>
 			<form action="/exer/replyController" method="get">
-			<input type="text" style="display: none" name="id" value="<%=id %>">
-			<input type="text" style="display: none" name="home_id" value="<%=home_id %>">
-			<h5>⭐ <%=rating%> · <button type="submit" style="border-style:none; color:#5659C2" class="submit"><u>후기 <%=comentCount%>개</u></button> · Ganggu-myeon, Yeongdeok-gun, 경상북도, 한국</h5>
+				<input type="text" style="display: none" name="id" value="<%=id%>">
+				<input type="text" style="display: none" name="home_id"
+					value="<%=home_id%>">
+				<h5>
+					⭐
+					<%=rating%>
+					·
+					<button type="submit" style="border-style: none; color: #5659C2"
+						class="submit">
+						<u>후기 <%=comentCount%>개
+						</u>
+					</button>
+					· <%=location%>
+				</h5>
 			</form>
 		</div>
 		<div class=home>
 			<div class=homeImgDiv>
 				<section>
-					<img alt="" src="images/home1/home1_1.jpg">
+					<img alt="" src="<%=image1%>">
 				</section>
 				<section>
-					<img alt="" src="images/home1/home1_2.png"> <img alt=""
-						src="images/home1/home1_3.png">
+					<img alt="" src="<%=image2%>"> <img alt=""
+						src="<%=image3%>">
 				</section>
 				<section>
-					<img alt="" src="images/home1/home1_4.png"> <img alt=""
-						src="images/home1/home1_5.png">
+					<img alt="" src="<%=image4%>"> <img alt=""
+						src="<%=image5%>">
 				</section>
 			</div>
 			<div id=explanation>
 				<div id=content>
-					<h3>Onda 님이 호스팅하는 펜션</h3>
-					<h5>최대 인원 6명 · 침대 2개 · 욕실 1개</h5>
+					<h3><%=host%></h3>
+					<h5><%=info%></h5>
 					<hr>
 
 					<div class=info>
 						<div>
-							<img alt="" src="images/home1/checkin.png">
+							<img alt="" src="images/home1/<%=sideimage1%>">
 							<div>
-								셀프 체크인
-								<h6>안내 직원의 도움을 받아 체크인하실 수 있어요.</h6>
+								<%=sideInfo1%>
+								<h6><%=sideInfo1_1%></h6>
 							</div>
 						</div>
 						<div>
-							<img alt="" src="images/home1/play.png">
+							<img alt="" src="images/home1/<%=sideimage2%>">
 							<div>
-								마음껏 물놀이를 즐기세요
-								<h6>해당 지역에서 수영장을 갖춘 몇 안 되는 숙소 중 하나입니다.</h6>
+								<%=sideInfo2%>
+								<h6><%=sideInfo2_1%></h6>
 							</div>
 						</div>
 						<div>
 							<img alt="" src="images/home1/star.png">
 							<div>
-								경험이 풍부한 호스트
-								<h6>Onda님은 다른 숙소에 대해 32개의 후기가 있습니다.</h6>
+								<%=sideInfo3%>
+								<h6><%=sideInfo3_1%></h6>
 							</div>
 						</div>
 						<hr>
@@ -294,35 +334,39 @@ table {
 							특색 있는 숙소와 즐길<br /> 거리를 예약하세요.
 						</div>
 						<form action="/exer/reservationController" method="post">
-						<table>
-							<tr>
-								<td class="search__sub__title">체크인</td>
-								<td class="search__sub__title">체크아웃</td>
-							</tr>
-							<tr>
-								<td><input class="search__input" type="date" name="start_date"/></td>
-								<td><input class="search__input" type="date" name="end_date"/></td>
-							</tr>
+							<table>
 								<tr>
-								<td colspan="2" class="search__sub__title" >인원</td>
-							</tr>
-							<tr>
-								<td colspan="2" ><select class="search__input" name="personNumber">
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-										<option>5</option>
-										<option>6</option>
-								</select></td>
-							</tr>
-						</table>
-						<div class="search__button">	
-							<button type="submit" style="width: 420px">예약하기</button>
-						</div>
-						<input type="text" style="display: none" name="id" value="<%=id %>">
-						<input type="text" style="display: none" name="home_id" value="<%=home_id %>">
+									<td class="search__sub__title">체크인</td>
+									<td class="search__sub__title">체크아웃</td>
+								</tr>
+								<tr>
+									<td><input class="search__input" type="date"
+										name="start_date" /></td>
+									<td><input class="search__input" type="date"
+										name="end_date" /></td>
+								</tr>
+								<tr>
+									<td colspan="2" class="search__sub__title">인원</td>
+								</tr>
+								<tr>
+									<td colspan="2"><select class="search__input"
+										name="personNumber">
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+											<option>6</option>
+									</select></td>
+								</tr>
+							</table>
+							<div class="search__button">
+								<button type="submit" style="width: 420px">예약하기</button>
+							</div>
+							<input type="text" style="display: none" name="id"
+								value="<%=id%>"> <input type="text"
+								style="display: none" name="home_id" value="<%=home_id%>">
 						</form>
-					</div> 
+					</div>
 				</section>
 			</div>
 

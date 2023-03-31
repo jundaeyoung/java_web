@@ -2,18 +2,19 @@
 <%@page import="com.airbnb.dto.ReplyDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+
 <%
-	String id = (String) session.getAttribute("id");
-	String home_id = "1";
-	session.setAttribute("home_id", home_id);
-	ComentService comentService = new ComentService();
-	
-	ReplyDTO replyDTO = comentService.comentCount(Integer.parseInt(home_id));
-	ReplyDTO replyDTO1 = comentService.ratingCount(Integer.parseInt(home_id));
-	
-	int comentCount = replyDTO.getComent();
-	double rating = replyDTO1.getRating();
+String id = (String) session.getAttribute("id");
+String home_id = (String) session.getAttribute("home_id");
+session.setAttribute("home_id", home_id);
+System.out.println(home_id + "DDDDD");
+ComentService comentService = new ComentService();
+
+ReplyDTO replyDTO = comentService.comentCount(Integer.parseInt(home_id));
+ReplyDTO replyDTO1 = comentService.ratingCount(Integer.parseInt(home_id));
+
+int comentCount = replyDTO.getComent();
+String rating = replyDTO1.getRating();
 %>
 <!DOCTYPE html>
 <html>
@@ -91,8 +92,9 @@ h2, h5 {
 	display: flex;
 	flex-direction: column;
 }
-#content h5{
-	margin-left: 1px; 
+
+#content h5 {
+	margin-left: 1px;
 }
 
 .info div {
@@ -210,8 +212,9 @@ table {
 <body>
 	<section class="header">
 		<div class="icon">
-			<a href="http://localhost:8080/exer/homeController?action=select&home_id=${home.id}"><img alt=""
-				src="images/airbnb.jpg"></a>
+			<a
+				href="http://localhost:8080/exer/homeController?action=select&home_id=${home.id}"><img
+				alt="" src="images/airbnb.jpg"></a>
 		</div>
 		<div class="air"></div>
 		<div>
@@ -235,9 +238,20 @@ table {
 		<div id=title>
 			<h2>바다를 보며 지친 몸과 피로를 풀 수 있는 풀빌라201</h2>
 			<form action="/exer/replyController" method="get">
-			<input type="text" style="display: none" name="id" value="<%=id %>">
-			<input type="text" style="display: none" name="home_id" value="<%=home_id %>">
-			<h5>⭐ <%=rating%> · <button type="submit" style="border-style:none; color:#5659C2" class="submit"><u>후기 <%=comentCount%>개</u></button> · Ganggu-myeon, Yeongdeok-gun, 경상북도, 한국</h5>
+				<input type="text" style="display: none" name="id" value="<%=id%>">
+				<input type="text" style="display: none" name="home_id"
+					value="<%=home_id%>">
+				<h5>
+					⭐
+					<%=rating%>
+					·
+					<button type="submit" style="border-style: none; color: #5659C2"
+						class="submit">
+						<u>후기 <%=comentCount%>개
+						</u>
+					</button>
+					· Ganggu-myeon, Yeongdeok-gun, 경상북도, 한국
+				</h5>
 			</form>
 		</div>
 		<div class=home>
@@ -294,35 +308,39 @@ table {
 							특색 있는 숙소와 즐길<br /> 거리를 예약하세요.
 						</div>
 						<form action="/exer/reservationController" method="post">
-						<table>
-							<tr>
-								<td class="search__sub__title">체크인</td>
-								<td class="search__sub__title">체크아웃</td>
-							</tr>
-							<tr>
-								<td><input class="search__input" type="date" name="start_date"/></td>
-								<td><input class="search__input" type="date" name="end_date"/></td>
-							</tr>
+							<table>
 								<tr>
-								<td colspan="2" class="search__sub__title" >인원</td>
-							</tr>
-							<tr>
-								<td colspan="2" ><select class="search__input" name="personNumber">
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-										<option>5</option>
-										<option>6</option>
-								</select></td>
-							</tr>
-						</table>
-						<div class="search__button">	
-							<button type="submit" style="width: 420px">예약하기</button>
-						</div>
-						<input type="text" style="display: none" name="id" value="<%=id %>">
-						<input type="text" style="display: none" name="home_id" value="<%=home_id %>">
+									<td class="search__sub__title">체크인</td>
+									<td class="search__sub__title">체크아웃</td>
+								</tr>
+								<tr>
+									<td><input class="search__input" type="date"
+										name="start_date" /></td>
+									<td><input class="search__input" type="date"
+										name="end_date" /></td>
+								</tr>
+								<tr>
+									<td colspan="2" class="search__sub__title">인원</td>
+								</tr>
+								<tr>
+									<td colspan="2"><select class="search__input"
+										name="personNumber">
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+											<option>6</option>
+									</select></td>
+								</tr>
+							</table>
+							<div class="search__button">
+								<button type="submit" style="width: 420px">예약하기</button>
+							</div>
+							<input type="text" style="display: none" name="id"
+								value="<%=id%>"> <input type="text"
+								style="display: none" name="home_id" value="<%=home_id%>">
 						</form>
-					</div> 
+					</div>
 				</section>
 			</div>
 

@@ -13,8 +13,7 @@
 	ReplyDTO replyDTO1 = comentService.ratingCount(Integer.parseInt(home_id));
 	
 	int comentCount = replyDTO.getComent();
-	double rating = replyDTO1.getRating();
-%>
+	String rating = replyDTO1.getRating();%>
 <!DOCTYPE html>
 <html>
 <head>
