@@ -40,6 +40,7 @@ table {
 	background-color: #F2F2F2;
 	margin-bottom: 30px;
 	padding: 10px;
+	border: 1px solid #F2F2F2;
 }
 
 button {
@@ -72,6 +73,38 @@ a {
 	width: 100px;
 	margin-bottom: 10px;
 }
+
+.star-ratings {
+	margin-bottom: 40px; 
+	color : #aaa9a9;
+	position: relative;
+	unicode-bidi: bidi-override;
+	width: max-content;
+	-webkit-text-fill-color: transparent;
+	/* Will override color (regardless of order) */
+	-webkit-text-stroke-width: 1.3px;
+	-webkit-text-stroke-color: #2b2a29;
+	flex-direction: row;
+	color: #aaa9a9;
+}
+
+.star-ratings-fill {
+	color: #fff58c;
+	padding: 0;
+	position: absolute;
+	z-index: 1;
+	display: flex;
+	flex-direction: row;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	-webkit-text-fill-color: gold;
+}
+
+.star-ratings-base {
+	z-index: 0;
+	padding: 0;
+}
 </style>
 </head>
 <body>
@@ -89,9 +122,45 @@ a {
 				<tr>
 					<td><h3>${reply.content}</h3></td>
 				</tr>
+				<tr>
+					<td><h3>${reply.rating}</h3></td>
+				</tr>
+				<tr>
+					<td>
+						<div class="star-ratings">
+							<div class="star-ratings-fill space-x-2 text-lg"
+								:style="{ width: ratingToPercent + '%' }">
+								<c:if test="${reply.rating==5}">
+									<span>★</span>
+									<span>★</span>
+									<span>★</span>
+									<span>★</span>
+									<span>★</span>
+								</c:if>
+								<c:if test="${reply.rating==4}">
+									<span>★</span>
+									<span>★</span>
+									<span>★</span>
+									<span>★</span>
+								</c:if>
+								<c:if test="${reply.rating==3}">
+									<span>★</span>
+									<span>★</span>
+									<span>★</span>
+								</c:if>
+								<c:if test="${reply.rating==2}">
+									<span>★</span>
+									<span>★</span>
+								</c:if>
+								<c:if test="${reply.rating==1}">
+									<span>★</span>
+								</c:if>
+
+							</div>
+						</div>
+					</td>
+				</tr>
 				<c:if test="${id eq reply.user_id}">
-
-
 					<tr>
 						<td><button>
 								<a
@@ -105,7 +174,15 @@ a {
 			<a href="/exer/insertForm.jsp">추가하기 
 		</button>
 		<button class=add>
-			<a href="http://localhost:8080/exer/homeController?action=select&cid=5">home 
+			<a
+				href="http://localhost:8080/exer/homeController?action=select&cid=5">home
+
+
+
+
+
+
+			
 		</button>
 	</div>
 </body>

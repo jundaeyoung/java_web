@@ -7,8 +7,30 @@ public class ReplyDTO {
 	String content;
 	String date;
 	int coment;
+	int rating;
 	
 	
+	
+	public ReplyDTO(int id, String user_id, int home_id, String content, String date,int rating) {
+		super();
+		this.id = id;
+		this.user_id = user_id;
+		this.home_id = home_id;
+		this.content = content;
+		this.date = date;
+		this.rating = rating;
+	}
+	@Override
+	public String toString() {
+		return "ReplyDTO [id=" + id + ", user_id=" + user_id + ", home_id=" + home_id + ", content=" + content
+				+ ", date=" + date + ", coment=" + coment + ", rating=" + rating + "]";
+	}
+	public int getRating() {
+		return rating;
+	}
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
 	public int getComent() {
 		return coment;
 	}
@@ -48,19 +70,6 @@ public class ReplyDTO {
 	
 	public ReplyDTO() {
 		
-	}
-	public ReplyDTO(int id, String user_id, int home_id, String content, String date) {
-		super();
-		this.id = id;
-		this.user_id = user_id;
-		this.home_id = home_id;
-		this.content = content;
-		this.date = date;
-	}
-	@Override
-	public String toString() {
-		return "ReplyDTO [id=" + id + ", user_id=" + user_id + ", home_id=" + home_id + ", content=" + content
-				+ ", date=" + date + "]";
 	}
 	
 }

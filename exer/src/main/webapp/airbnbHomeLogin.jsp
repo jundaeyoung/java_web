@@ -89,6 +89,10 @@ div {
 	align-items: flex-start;
 	justify-content: flex-start;
 }
+
+#homeinfo a:hover img {
+	transform: scale(1.01);
+}
 </style>
 
 </head>

@@ -36,7 +36,8 @@ public class ReplyDAO implements IReplyDAO{
 				String user_id = rs.getString("user_id");
 				String content = rs.getString("content");
 				String date = rs.getString("date");
-				ReplyDTO dto = new ReplyDTO(id,user_id,home_id,content,date);
+				int rating = rs.getInt("rating");
+				ReplyDTO dto = new ReplyDTO(id,user_id,home_id,content,date,rating);
 				list.add(dto);
 				
 			}
@@ -54,17 +55,18 @@ public class ReplyDAO implements IReplyDAO{
 	}
 
 	@Override
-	public int insert(String user_id, int home_id, String content) {
+	public int insert(String user_id, int home_id, String content,int rating) {
 		int resultCount = 0;
-		String quertStr = " INSERT INTO reply(user_id, home_id, content) "
+		String quertStr = " INSERT INTO reply(user_id, home_id, content, rating) "
 				+ " VALUES "
-				+ "	( ? , ? , ? ) ";
+				+ "	( ? , ? , ? , ?  ) ";
 		PreparedStatement pstmt = null;
 		try {
 			pstmt = conn.prepareStatement(quertStr);
 			pstmt.setString(1, user_id);
 			pstmt.setInt(2, home_id);
 			pstmt.setString(3, content);
+			pstmt.setInt(4, rating);
 			resultCount = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

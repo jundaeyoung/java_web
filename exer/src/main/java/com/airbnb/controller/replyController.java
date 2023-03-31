@@ -65,11 +65,12 @@ public class replyController extends HttpServlet {
 		String home_id=request.getParameter("home_id");
 		String content = request.getParameter("content");
 		String date = request.getParameter("date");
+		String rating = request.getParameter("rating");
 		if(action.equals("update")) {
 			String id = request.getParameter("id");
 			responseCount = replyDAO.update(Integer.parseInt(id),user_id, Integer.parseInt(home_id),content);
 		}else if(action.equals("insert")) {
-			responseCount = replyDAO.insert(user_id,Integer.parseInt(home_id), content);		
+			responseCount = replyDAO.insert(user_id,Integer.parseInt(home_id), content , Integer.parseInt(rating));		
 			ArrayList<ReplyDTO> resultlist = dao.select(Integer.parseInt(home_id));
 			request.setAttribute("list", resultlist);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("reply.jsp");
