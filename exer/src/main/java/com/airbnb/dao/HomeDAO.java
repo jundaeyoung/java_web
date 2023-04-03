@@ -1,16 +1,18 @@
 package com.airbnb.dao;
 
-import java.sql.Connection; 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.websocket.Session;
+
 import com.airbnb.dto.HomeDTO;
 import com.airbnb.utils.DBHelper;
 
 public class HomeDAO implements IHomeDAO {
-	
+
 	private Connection conn;
 	private DBHelper dbHelper;
 
@@ -61,7 +63,7 @@ public class HomeDAO implements IHomeDAO {
 
 		try {
 			pstmt = conn.prepareStatement(strQry);
-			pstmt.setString(1,"%" + search + "%");
+			pstmt.setString(1, "%" + search + "%");
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				int id = rs.getInt("id");
@@ -84,5 +86,72 @@ public class HomeDAO implements IHomeDAO {
 		}
 		return list;
 	}
-	
+
+	@Override
+	public int insert(String price, String name, String day, String view) {
+		int resultRow = 0;
+		int homeUpdateId = 0;
+		PreparedStatement pstmt = null;
+		String sql = " INSERT INTO home(price,name,day,view) " + " VALUES " + "	(?,?,?,?) ";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, price);
+			pstmt.setString(2, name);
+			pstmt.setString(3, day);
+			pstmt.setString(4, view);
+			resultRow = pstmt.executeUpdate();
+			HomeDTO resultDTO = select(price, name, day, view);
+			System.out.println(price);
+			System.out.println(name);
+			System.out.println(day);
+			System.out.println(view);
+			System.out.println(resultDTO.getId());
+			homeUpdateId=resultDTO.getId();
+			
+			
+		} catch (SQLException e) {
+			System.out.println("여기서 오류");
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return homeUpdateId;
+	}
+
+	@Override
+	public HomeDTO select(String price, String name, String day, String view) {
+
+		String strQry = " SELECT id FROM home " + " WHERE price= ? AND name= ? AND day= ? AND view= ? ";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		HomeDTO homeDTO = null;
+		homeDTO = new HomeDTO();
+		try {
+			pstmt = conn.prepareStatement(strQry);
+			pstmt.setString(1, price);
+			pstmt.setString(2, name);
+			pstmt.setString(3, day);
+			pstmt.setString(4, view);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				homeDTO.setId(rs.getInt("id"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return homeDTO;
+
+	}
+
 }

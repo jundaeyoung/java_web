@@ -17,7 +17,7 @@ import com.airbnb.utils.DBHelper;
 
 
 @WebServlet("/replyController")
-public class replyController extends HttpServlet {
+public class ReplyController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -26,7 +26,7 @@ public class replyController extends HttpServlet {
 		dbHelper.getConnection(); // DB 연결
 	}
 
-	public replyController() {
+	public ReplyController() {
 		super();
 	}
 
@@ -35,11 +35,12 @@ public class replyController extends HttpServlet {
 		ReplyDAO dao = new ReplyDAO();
 		String home_id = request.getParameter("home_id");
 		String action = request.getParameter("action");
+		request.setAttribute("home_id", home_id);
+		System.out.println("home_iddff" + home_id);
 		if ("delete".equals(action)) {
 			String user_id = request.getParameter("user_id");
 			String cid = request.getParameter("cid");
 			System.out.println("user_id" + user_id);
-			System.out.println("home_id" + home_id);
 			System.out.println("cid"+cid);
 			dao.delete(user_id,Integer.parseInt(cid));
 			ArrayList<ReplyDTO> resultlist = dao.select(Integer.parseInt(home_id));
@@ -56,13 +57,14 @@ public class replyController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ReplyDAO dao = new ReplyDAO();
+		ReplyDAO replyDAO = new ReplyDAO();
 		request.setCharacterEncoding("UTF-8");
 		String action = request.getParameter("action");
-		ReplyDAO replyDAO = new ReplyDAO();
 		int responseCount = 0;
 		String user_id = request.getParameter("user_id");
-		String home_id=request.getParameter("home_id");
+		String home_id = request.getParameter("home_id");
+		System.out.println("여기는 replyController doPost"+home_id);
+		
 		String content = request.getParameter("content");
 		String date = request.getParameter("date");
 		String rating = request.getParameter("rating");
@@ -70,8 +72,8 @@ public class replyController extends HttpServlet {
 			String id = request.getParameter("id");
 			responseCount = replyDAO.update(Integer.parseInt(id),user_id, Integer.parseInt(home_id),content);
 		}else if(action.equals("insert")) {
-			responseCount = replyDAO.insert(user_id,Integer.parseInt(home_id), content , Integer.parseInt(rating));		
-			ArrayList<ReplyDTO> resultlist = dao.select(Integer.parseInt(home_id));
+			responseCount = replyDAO.insert(user_id,Integer.parseInt(home_id), content , Integer.parseInt(rating));	
+			ArrayList<ReplyDTO> resultlist = replyDAO.select(Integer.parseInt(home_id));
 			request.setAttribute("list", resultlist);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("reply.jsp");
 			dispatcher.forward(request, response);

@@ -2,7 +2,6 @@ package com.airbnb.service;
 
 import com.airbnb.dao.ReservationDAO;
 import com.airbnb.dto.ReservationDTO;
-import com.airbnb.dto.UserDTO;
 
 public class ReservationService {
 

@@ -35,11 +35,6 @@ public class SearchController extends HttpServlet {
 		HomeDAO dao = new HomeDAO();
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		String cid = request.getParameter("id");
-		String price = request.getParameter("price");
-		String name = request.getParameter("name");
-		String day = request.getParameter("day");
-		String view = request.getParameter("view");
 		String action = request.getParameter("action");
 		String search = request.getParameter("search");
 		System.out.println("search : " + search);

@@ -14,11 +14,11 @@ import com.airbnb.service.ReservationService;
 import com.airbnb.service.UserService;
 
 @WebServlet("/reservationController")
-public class reservationController extends HttpServlet {
+public class ReservationController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ReservationService homeService;
 
-	public reservationController() {
+	public ReservationController() {
 		homeService = new ReservationService();
 	}
 

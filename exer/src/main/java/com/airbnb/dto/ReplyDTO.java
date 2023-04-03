@@ -7,9 +7,9 @@ public class ReplyDTO {
 	String content;
 	String date;
 	int coment;
-	double rating;
+	String rating;
 
-	public ReplyDTO(int id, String user_id, int home_id, String content, String date, double rating) {
+	public ReplyDTO(int id, String user_id, int home_id, String content, String date, String rating) {
 		super();
 		this.id = id;
 		this.user_id = user_id;
@@ -25,12 +25,12 @@ public class ReplyDTO {
 				+ ", date=" + date + ", coment=" + coment + ", rating=" + rating + "]";
 	}
 
-	public double getRating() {
+	public String getRating() {
 		return rating;
 	}
 
-	public void setRating(float f) {
-		this.rating = f;
+	public void setRating(String rating) {
+		this.rating = rating;
 	}
 
 	public int getComent() {

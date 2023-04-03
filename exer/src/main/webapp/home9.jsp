@@ -243,15 +243,15 @@ table {
 		<div class=home>
 			<div class=homeImgDiv>
 				<section>
-					<img alt="" src="images/home3/home3_1.png">
+					<img alt="" src="images/home9/home9_1.png">
 				</section>
 				<section>
-					<img alt="" src="images/home3/home3_2.png"> <img alt=""
-						src="images/home3/home3_3.png">
+					<img alt="" src="images/home9/home9_2.png"> <img alt=""
+						src="images/home9/home9_3.png">
 				</section>
 				<section>
-					<img alt="" src="images/home3/home3_4.png"> <img alt=""
-						src="images/home3/home3_5.png">
+					<img alt="" src="images/home9/home9_4.png"> <img alt=""
+						src="images/home9/home9_5.png">
 				</section>
 			</div>
 			<div id=explanation>

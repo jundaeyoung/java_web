@@ -5,8 +5,10 @@
 
 <%
 String id = (String) session.getAttribute("id");
-String home_id = (String) session.getAttribute("home_id");
-System.out.println("home_id" + home_id);
+String home_id = request.getParameter("home_id");
+System.out.println("home_iff" + home_id);
+
+
 %>
 <!DOCTYPE html>
 <html>

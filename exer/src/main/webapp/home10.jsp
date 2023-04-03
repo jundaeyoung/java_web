@@ -1,4 +1,4 @@
-<%@page import="com.airbnb.service.homeInfoService"%>
+<%@page import="com.airbnb.service.HomeInfoService"%>
 <%@page import="com.airbnb.dto.HomeInfoDTO"%>
 <%@page import="com.airbnb.service.ComentService"%>
 <%@page import="com.airbnb.dto.ReplyDTO"%>
@@ -6,22 +6,23 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
+
 %>
 <%
 String id = (String) session.getAttribute("id");
 String home_id = (String) request.getAttribute("home_id");
-System.out.println(home_id + "제발젭");
 ComentService comentService = new ComentService();
-homeInfoService homeInfoService = new homeInfoService();
+HomeInfoService homeInfoService = new HomeInfoService();
 
 HomeInfoDTO homeInfo = homeInfoService.homeInfoSelect(Integer.parseInt(home_id)); 
 
 ReplyDTO replyDTO = comentService.comentCount(Integer.parseInt(home_id));
 ReplyDTO replyDTO1 = comentService.ratingCount(Integer.parseInt(home_id));
-
 int comentCount = replyDTO.getComent();
 String rating = replyDTO1.getRating();
-
+if(rating==null){
+	rating="0.00";
+}
 HomeInfoDTO homeInfoDTO = homeInfoService.homeInfoSelect(Integer.parseInt(home_id));
 String title = homeInfoDTO.getTitle();
 String location = homeInfoDTO.getLocation();
@@ -38,7 +39,7 @@ String sideInfo1_1 = homeInfoDTO.getSideInfo1_1();
 String sideimage2 = homeInfoDTO.getSideimage2();
 String sideInfo2 = homeInfoDTO.getSideInfo2();
 String sideInfo2_1 = homeInfoDTO.getSideInfo2_1();
-String sideimage3 = homeInfoDTO.getImage3();
+String sideimage3 = homeInfoDTO.getSideimage3();
 String sideInfo3 = homeInfoDTO.getSideInfo3();
 String sideInfo3_1 = homeInfoDTO.getSideInfo3_1();
 %>
@@ -90,9 +91,16 @@ input {
 	align-items: center;
 }
 
+#title-body {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
 #title {
-	align-items: start;
-	margin-right: 200px;
+	display: felx;
+	align-items: flex-start;
+	margin-left: 90px;
 }
 
 h2, h5 {
@@ -261,117 +269,118 @@ table {
 	</section>
 	<hr>
 	<section id=body>
-		<div id=title>
-			<h2><%=title%></h2>
-			<form action="/exer/replyController" method="get">
-				<input type="text" style="display: none" name="id" value="<%=id%>">
-				<input type="text" style="display: none" name="home_id"
-					value="<%=home_id%>">
-				<h5>
-					⭐
-					<%=rating%>
-					·
-					<button type="submit" style="border-style: none; color: #5659C2"
-						class="submit">
-						<u>후기 <%=comentCount%>개
-						</u>
-					</button>
-					· <%=location%>
-				</h5>
-			</form>
-		</div>
-		<div class=home>
-			<div class=homeImgDiv>
-				<section>
-					<img alt="" src="<%=image1%>">
-				</section>
-				<section>
-					<img alt="" src="<%=image2%>"> <img alt=""
-						src="<%=image3%>">
-				</section>
-				<section>
-					<img alt="" src="<%=image4%>"> <img alt=""
-						src="<%=image5%>">
-				</section>
+		<div id=title-body>
+			<div id=title>
+				<h2><%=title%></h2>
+				<form action="/exer/replyController" method="get">
+					<input type="text" style="display: none" name="id" value="<%=id%>">
+					<input type="text" style="display: none" name="home_id"
+						value="<%=home_id%>">
+					<h5>
+						⭐
+						<%=rating%>
+						·
+						<button type="submit" style="border-style: none; color: #5659C2"
+							class="submit">
+							<u>후기 <%=comentCount%>개
+							</u>
+						</button>
+						·
+						<%=location%>
+					</h5>
+				</form>
 			</div>
-			<div id=explanation>
-				<div id=content>
-					<h3><%=host%></h3>
-					<h5><%=info%></h5>
-					<hr>
-
-					<div class=info>
-						<div>
-							<img alt="" src="images/home1/<%=sideimage1%>">
-							<div>
-								<%=sideInfo1%>
-								<h6><%=sideInfo1_1%></h6>
-							</div>
-						</div>
-						<div>
-							<img alt="" src="images/home1/<%=sideimage2%>">
-							<div>
-								<%=sideInfo2%>
-								<h6><%=sideInfo2_1%></h6>
-							</div>
-						</div>
-						<div>
-							<img alt="" src="images/home1/star.png">
-							<div>
-								<%=sideInfo3%>
-								<h6><%=sideInfo3_1%></h6>
-							</div>
-						</div>
-						<hr>
-						<h2 style="margin: 20px; color: red">에어커버</h2>
-						<p style="margin: 20px">모든 예약에는 호스트가 예약을 취소하거나 숙소 정보가 정확하지 않은
-							경우 또는 체크인에 문제가 있는 상황에 대비한 무료 보호 프로그램이 포함됩니다.</p>
-					</div>
+			<div class=home>
+				<div class=homeImgDiv>
+					<section>
+						<img alt="" src="<%=image1%>">
+					</section>
+					<section>
+						<img alt="" src="<%=image2%>"> <img alt="" src="<%=image3%>">
+					</section>
+					<section>
+						<img alt="" src="<%=image4%>"> <img alt="" src="<%=image5%>">
+					</section>
 				</div>
-				<section>
-					<div class="search__box">
-						<div class="search__title">
-							특색 있는 숙소와 즐길<br /> 거리를 예약하세요.
-						</div>
-						<form action="/exer/reservationController" method="post">
-							<table>
-								<tr>
-									<td class="search__sub__title">체크인</td>
-									<td class="search__sub__title">체크아웃</td>
-								</tr>
-								<tr>
-									<td><input class="search__input" type="date"
-										name="start_date" /></td>
-									<td><input class="search__input" type="date"
-										name="end_date" /></td>
-								</tr>
-								<tr>
-									<td colspan="2" class="search__sub__title">인원</td>
-								</tr>
-								<tr>
-									<td colspan="2"><select class="search__input"
-										name="personNumber">
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-											<option>5</option>
-											<option>6</option>
-									</select></td>
-								</tr>
-							</table>
-							<div class="search__button">
-								<button type="submit" style="width: 420px">예약하기</button>
+				<div id=explanation>
+					<div id=content>
+						<h3><%=host%></h3>
+						<h5><%=info%></h5>
+						<hr>
+
+						<div class=info>
+							<div>
+								<img alt="" src="images/<%=sideimage1%>">
+								<div>
+									<%=sideInfo1%>
+									<h6><%=sideInfo1_1%></h6>
+								</div>
 							</div>
-							<input type="text" style="display: none" name="id"
-								value="<%=id%>"> <input type="text"
-								style="display: none" name="home_id" value="<%=home_id%>">
-						</form>
+							<div>
+								<img alt="" src="images/<%=sideimage2%>">
+								<div>
+									<%=sideInfo2%>
+									<h6><%=sideInfo2_1%></h6>
+								</div>
+							</div>
+							<div>
+								<img alt="" src="images/<%=sideimage3%>">
+								<div>
+									<%=sideInfo3%>
+									<h6><%=sideInfo3_1%></h6>
+								</div>
+							</div>
+							<hr>
+							<h2 style="margin: 20px; color: red">에어커버</h2>
+							<p style="margin: 20px">모든 예약에는 호스트가 예약을 취소하거나 숙소 정보가 정확하지 않은
+								경우 또는 체크인에 문제가 있는 상황에 대비한 무료 보호 프로그램이 포함됩니다.</p>
+						</div>
 					</div>
-				</section>
-			</div>
+					<section>
+						<div class="search__box">
+							<div class="search__title">
+								특색 있는 숙소와 즐길<br /> 거리를 예약하세요.
+							</div>
+							<form action="/exer/reservationController" method="post">
+								<table>
+									<tr>
+										<td class="search__sub__title">체크인</td>
+										<td class="search__sub__title">체크아웃</td>
+									</tr>
+									<tr>
+										<td><input class="search__input" type="date"
+											name="start_date" /></td>
+										<td><input class="search__input" type="date"
+											name="end_date" /></td>
+									</tr>
+									<tr>
+										<td colspan="2" class="search__sub__title">인원</td>
+									</tr>
+									<tr>
+										<td colspan="2"><select class="search__input"
+											name="personNumber">
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+										</select></td>
+									</tr>
+								</table>
+								<div class="search__button">
+									<button type="submit" style="width: 420px">예약하기</button>
+								</div>
+								<input type="text" style="display: none" name="id"
+									value="<%=id%>"> <input type="text"
+									style="display: none" name="home_id" value="<%=home_id%>">
+							</form>
+						</div>
+				</div>
+	</section>
+	</div>
 
 
-		</div>
+	</div>
 	</section>
 </body>
 </html>

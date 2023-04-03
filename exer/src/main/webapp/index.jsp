@@ -60,6 +60,9 @@
 	<form action="/exer/edite.jsp">
 	<button type="submit" class="btn btn-primary">정보수정</button>
 	</form>
+	<form action="/exer/homeUpload.jsp">
+	<button type="submit" class="btn btn-primary">숙소등록</button>
+	</form>
 	<form action="/exer/logout.jsp">
 	<button type="submit" class="btn btn-primary">Logout</button>
 	</form>

@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ page errorPage="errorPage.jsp" %>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	
+	<%
+String id = (String) session.getAttribute("id");
+String home_id = (String) session.getAttribute("home_id");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,25 +61,48 @@ div {
 }
 
 .home {
-	margin: 10px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
 .home div {
-	flex: 1;
+	max-width: 2000px;
+	margin: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
 }
 
-.home div {
-	flex: 1;
+#homeinfo {
+	margin: 20px 60px;
+	flex-direction: column;
+	display: flex;
+}
+
+#homeinfo {
+	min-width: 450px;
+	max-width: 500px;
+	display: flex;
+	flex-direction: column;
+	flex: 0 0 1;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+#homeinfo #id{
+	border: none;
+
+}
+#homeinfo #id:hover img {
+	transform: scale(1.01);
 }
 </style>
 </head>
 <body>
 	<section class="header">
 		<div class="icon">
-			<a href="/exer/airbnbHome.jsp"><img alt="" src="images/airbnb.jpg"></a>
+			<a href="http://localhost:8080/exer/homeController?action=search&cid=5"><img alt="" src="images/airbnb.jpg"></a>
 		</div>
 		<div class="air"></div>
 		<div>
@@ -126,71 +155,17 @@ div {
 	</section>
 	<section class="home">
 		<div>
-			<form action="" method="GET" class="serch">
-				<a href="/exer/error.jsp"><img
-					alt="" src="images/home1.png" style="border-radius: 20px">
-					<p>Ganggu-myeon, Yeongdeok-gun,한국</p>
-					<p>바다 전망</p>
-					<p>3월 20일~25일</p>
-					<p>\296,800 / 박</p> </a>
-			</form>
-		</div>
-		<div>
-			<form action="" method="GET" class="serch">
-				<a
-					href="/exer/error.jsp"><img
-					alt="" src="images/home2.png" style="border-radius: 20px">
-					<p>Niseko, Abuta District, Hokkaido, 일본</p>
-					<p>산 전망</p>
-					<p>3월 21일~26일</p>
-					<p>\679,531 / 박</p> </a>
-			</form>
-		</div>
-		<div>
-			<form action="" method="GET" class="serch">
-				<a
-					href="/exer/error.jsp"><img
-					alt="" src="images/home5.png" style="border-radius: 20px">
-					<p>南伊豆町, 静岡県, 일본</p>
-					<p>산 전망</p>
-					<p>3월 23일~26일</p>
-					<p>\483,007 / 박</p> </a>
-			</form>
-		</div>
-	</section>
-	<section class="home">
-		<div>
-			<form action="" method="GET" class="serch">
-				<a
-					href="/exer/error.jsp"><img
-					alt="" src="images/home3.png" style="border-radius: 20px">
-					<p>시모다, 일본</p>
-					<p>바다 전망</p>
-					<p>3월 20일~25일</p>
-					<p>\1,012,190 / 박</p> </a>
-			</form>
-		</div>
-		<div>
-			<form action="" method="GET" class="serch">
-				<a
-					href="/exer/error.jsp"><img
-					alt="" src="images/home4.png" style="border-radius: 20px">
-					<p>수영구, 한국</p>
-					<p>해변 및 바다 전망</p>
-					<p>3월 26일~5월 1일</p>
-					<p>\167,639 / 박</p> </a>
-			</form>
-		</div>
-		<div>
-			<form action="" method="GET" class="serch">
-				<a
-					href="/exer/error.jsp"><img
-					alt="" src="images/home6.png" style="border-radius: 20px">
-					<p>여수시, 전라남도, 한국</p>
-					<p>시티 전망</p>
-					<p>4월 3일~4월 8일</p>
-					<p>\71,912 / 박</p> </a>
-			</form>
+			<c:forEach var="home" items="${list}">
+				<form action="/exer/homeInfoController" name="home_id" method="GET" class="serch " id="homeinfo">
+					<button type="submit" name="id" value="${home.id}" id="id"> <img alt=""
+						src="images/home${home.id}.png" style="border-radius: 20px">
+					</button>
+					<p>${home.name}</p>
+					<p>${home.view}</p>
+					<p>${home.day}</p>
+					<p>${home.price}</p>
+				</form>
+			</c:forEach>
 		</div>
 	</section>
 </body>

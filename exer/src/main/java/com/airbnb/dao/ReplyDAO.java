@@ -36,7 +36,7 @@ public class ReplyDAO implements IReplyDAO{
 				String user_id = rs.getString("user_id");
 				String content = rs.getString("content");
 				String date = rs.getString("date");
-				int rating = rs.getInt("rating");
+				String rating = rs.getString("rating");
 				ReplyDTO dto = new ReplyDTO(id,user_id,home_id,content,date,rating);
 				list.add(dto);
 				
@@ -164,7 +164,7 @@ public class ReplyDAO implements IReplyDAO{
 		ReplyDTO replyDTO = null;
 		replyDTO = new ReplyDTO();
 		
-		String qryStr=" SELECT round(avg(rating),2)AS rating FROM reply "
+		String qryStr=" SELECT format(avg(rating),2)AS rating FROM reply "
 				+ "	WHERE home_id= ?  ";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -174,8 +174,7 @@ public class ReplyDAO implements IReplyDAO{
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				replyDTO.setRating(rs.getFloat("rating"));
-				System.out.println(replyDTO+"DDDD");
+				replyDTO.setRating(rs.getString("rating"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

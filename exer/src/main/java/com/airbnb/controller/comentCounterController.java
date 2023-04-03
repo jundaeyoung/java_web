@@ -1,6 +1,6 @@
 package com.airbnb.controller;
 
-import java.io.IOException;
+import java.io.IOException; 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,11 +12,11 @@ import com.airbnb.dto.UserDTO;
 import com.airbnb.service.ComentService;
 
 @WebServlet("/coment")
-public class comentCounterController extends HttpServlet {
+public class ComentCounterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ComentService comentService;
 
-	public comentCounterController() {
+	public ComentCounterController() {
 		comentService = new ComentService();
 	}
 

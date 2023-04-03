@@ -4,7 +4,8 @@
 
 <%
 String id = (String) session.getAttribute("id");
-String home_id = (String) session.getAttribute("home_id");
+String home_id = request.getParameter("home_id");
+System.out.println("home_iff" + home_id);
 %>
 <!DOCTYPE html>
 <html>
@@ -160,27 +161,17 @@ a {
 				<c:if test="${id eq reply.user_id}">
 					<tr>
 						<td><button>
-								<a
-									href="/exer/replyController?action=delete&cid=${reply.id}&user_id=${reply.user_id}&home_id=${reply.home_id}">delete</a>
+								<a href="/exer/replyController?action=delete&cid=${reply.id}&user_id=${reply.user_id}&home_id=${reply.home_id}">delete</a>
 							</button></td>
 					</tr>
 				</c:if>
 			</table>
 		</c:forEach>
 		<button class=add>
-			<a href="/exer/insertForm.jsp">추가하기 
+			<a href="/exer/insertForm.jsp?home_id=<%=home_id%>">추가하기</a> 
 		</button>
 		<button class=add>
-			<a
-				href="http://localhost:8080/exer/homeController?action=select&cid=5">home
-
-
-
-
-
-
-			
-		</button>
+			<a href="http://localhost:8080/exer/homeController?action=select&cid=5">home </a> </button>
 	</div>
 </body>
 </html>
