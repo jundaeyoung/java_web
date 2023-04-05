@@ -36,7 +36,7 @@ public class HomeInfoController extends HttpServlet {
 			HomeInfoDTO responseDTO = dao.select(Integer.parseInt(home_id));
 			request.setAttribute("action", action);
 			request.setAttribute("home_id", home_id);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("home10.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("homeInfo.jsp");
 			dispatcher.forward(request, response);
 		}
 

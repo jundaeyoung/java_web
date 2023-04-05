@@ -55,7 +55,7 @@ public class UserUpdateController extends HttpServlet {
 			}else {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter writer = response.getWriter();
-				writer.println("<script>alert('정보수정이 성공하였습니다.'); location.href='http://localhost:8080/exer/homeController?action=select&cid=5';</script>");
+				writer.println("<script>alert('정보수정이 성공하였습니다.'); location.href='/exer/homeController?action=select&cid=5';</script>");
 				writer.close();
 			}
 		}

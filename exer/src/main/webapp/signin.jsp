@@ -1,10 +1,10 @@
 <%@page import="java.io.PrintWriter"%>
 <%@page import="com.airbnb.service.UserService"%>
 <%@page import="com.airbnb.dto.UserDTO"%>
-<%@ page errorPage="errorPage.jsp" %>
+<%@ page errorPage="errorPage.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%
+<%
 String id = request.getParameter("id");
 String password = request.getParameter("password");
 UserService userService = new UserService();
@@ -15,18 +15,15 @@ String dbPwd = responseDTO.getPassword();
 
 if (id != null && password != null) {
 	if (id.equals(dbId) && password.equals(dbPwd)) {
-		// login 성공
-		// 세션에 사용자 이름 저장
 		session.setAttribute("id", id);
 		session.setAttribute("password", password);
 		PrintWriter writer = response.getWriter();
-		writer.println("<script>alert('로그인 되었습니다'); location.href='http://localhost:8080/exer/homeController?action=select&cid=5';</script>");	
+		writer.println("<script>alert('로그인 되었습니다'); location.href='/exer/homeController?action=select&cid=5';</script>");	
 		writer.close();
 		response.sendRedirect("airbnbHomeLogin.jsp");
 	} else {
-		// login 실패
 		PrintWriter writer = response.getWriter();
-		writer.println("<script>alert('아이디,비밀번호가 일치하지 않습니다 확인해주세요'); location.href='/exer/signin.jsp';</script>");	
+		writer.println("<script>alert('아이디,비밀번호가 일치하지 않습니다 확인해주세요'); location.href='/exer/UserSignInController';</script>");	
 		writer.close();
 	}
 }
@@ -38,7 +35,7 @@ if (id != null && password != null) {
 <meta charset="UTF-8">
 <title>airbnb</title>
 <link rel="shortcut icon" sizes="76x76" type="image/x-icon"
-        href="https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico">
+	href="https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -80,8 +77,7 @@ input {
 button {
 	float: right;
 	margin: 1px;
-		margin-bottom: 150px;
-	
+	margin-bottom: 150px;
 }
 </style>
 
@@ -108,21 +104,23 @@ button {
 	<section class=content>
 		<form action="/exer/signin.jsp" method="POST">
 			<div class="form-group">
-				<input type="text" placeholder=id name="id" id="id" class="form-control"
-					required>
+				<input type="text" placeholder=id name="id" id="id"
+					class="form-control" required>
 			</div>
 			<div class="form-group">
 				<input type="password" placeholder=pw name="password" id="password"
 					class="form-control" required>
 			</div>
-			<a href="/exer/usercontroller"><button type="submit" class="btn btn-primary">로그인</button></a>
-			<a href="/exer/signup.jsp"><button type="button" class="btn btn-primary" style="text-color:white" > 회원가입</button></a>
+			<a href="/exer/usercontroller"><button type="submit"
+					class="btn btn-primary">로그인</button></a> <a href="/exer/signup.jsp"><button
+					type="button" class="btn btn-primary" style="text-color: white">
+					회원가입</button></a>
 		</form>
 	</section>
-		<%-- 세션 클래스에 사용자 이름이 저장되어 있으면 로그인 상태를 유지합니다. --%>
+	<%-- 세션 클래스에 사용자 이름이 저장되어 있으면 로그인 상태를 유지합니다. --%>
 	<% if(session.getAttribute("id")!=null){ %>
-		
-			
-		<%}%>
+
+
+	<%}%>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <%@page import="com.airbnb.service.HomeInfoService"%>
 <%@page import="com.airbnb.dto.HomeInfoDTO"%>
-<%@page import="com.airbnb.service.ComentService"%>
+<%@page import="com.airbnb.service.ReplyService"%>
 <%@page import="com.airbnb.dto.ReplyDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -11,7 +11,7 @@
 <%
 String id = (String) session.getAttribute("id");
 String home_id = (String) request.getAttribute("home_id");
-ComentService comentService = new ComentService();
+ReplyService comentService = new ReplyService();
 HomeInfoService homeInfoService = new HomeInfoService();
 
 HomeInfoDTO homeInfo = homeInfoService.homeInfoSelect(Integer.parseInt(home_id)); 
@@ -85,6 +85,7 @@ input {
 }
 
 #body {
+	margin-bottom: 80px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -247,7 +248,7 @@ table {
 	<section class="header">
 		<div class="icon">
 			<a
-				href="http://localhost:8080/exer/homeController?action=select&cid=5"><img
+				href="/exer/homeController?action=select&cid=5"><img
 				alt="" src="images/airbnb.jpg"></a>
 		</div>
 		<div class="air"></div>
@@ -264,7 +265,7 @@ table {
 		</div>
 		<div>당신의 공간을 에어비엔비하세요</div>
 		<div>
-			<a href="/exer/index.jsp"><img alt="" src="images/Login.png"></a>
+			<a href="/exer/UserInfoController"><img alt="" src="images/Login.png"></a>
 		</div>
 	</section>
 	<hr>

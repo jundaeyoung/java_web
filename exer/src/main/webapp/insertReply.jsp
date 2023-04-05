@@ -1,14 +1,9 @@
 <%@page import="javax.print.attribute.HashPrintRequestAttributeSet"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
 <%
 String id = (String) session.getAttribute("id");
 String home_id = request.getParameter("home_id");
-System.out.println("home_iff" + home_id);
-
-
 %>
 <!DOCTYPE html>
 <html>
@@ -123,14 +118,14 @@ form {
 .star-rating label:hover, .star-rating label:hover ~ label {
 	-webkit-text-fill-color: #fff58c;
 }
-.add:hover{
-	cursor:pointer;
-	background-color:#3350B7; 
+
+.add:hover {
+	cursor: pointer;
+	background-color: #3350B7;
 }
 </style>
 </head>
 <body>
-
 	<h1>후기</h1>
 	<div>
 		<form action="/exer/replyController?action=insert" method="post">
@@ -173,8 +168,6 @@ form {
 				</tr>
 			</table>
 		</form>
-
 	</div>
-
 </body>
 </html>

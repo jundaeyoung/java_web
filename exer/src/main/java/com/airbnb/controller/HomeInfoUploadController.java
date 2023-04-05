@@ -47,7 +47,28 @@ public class HomeInfoUploadController extends HttpServlet {
 		String sideInfo3 = request.getParameter("sideInfo3");
 		String sideInfo3_1 = request.getParameter("sideInfo3_1");
 		String home_id = request.getParameter("home_id");
-		int insertDTO = homeInfoUploadService.insertByHomeInfo(title, location, image1, image2, image3, image4, image5, host, info, sideimage1, sideInfo1, sideInfo1_1, sideimage2, sideInfo2, sideInfo2_1, sideimage3, sideInfo3, sideInfo3_1, Integer.parseInt(home_id));
+		System.out.println("title:"+title);
+		int insertDTO = homeInfoUploadService.insertByHomeInfo(
+				title, 
+				location, 
+				image1, 
+				image2, 
+				image3, 
+				image4, 
+				image5, 
+				host, 
+				info, 
+				sideimage1, 
+				sideInfo1, 
+				sideInfo1_1, 
+				sideimage2, 
+				sideInfo2, 
+				sideInfo2_1, 
+				sideimage3, 
+				sideInfo3, 
+				sideInfo3_1,
+				Integer.parseInt(home_id)
+		);
 		System.out.println(insertDTO);
 		if (insertDTO == 0) {
 			response.setContentType("text/html; charset=UTF-8");
@@ -58,7 +79,7 @@ public class HomeInfoUploadController extends HttpServlet {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter writer = response.getWriter();
 			writer.println(
-					"<script>alert('숙소가 등록되었습니다.'); location.href='http://localhost:8080/exer/homeController?action=select&cid=5';</script>");
+					"<script>alert('숙소가 등록되었습니다.'); location.href='/exer/homeController?action=select&cid=5';</script>");
 			writer.close();
 		}
 	}

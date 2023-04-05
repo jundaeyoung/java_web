@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <%
 String id = (String) session.getAttribute("id");
 String home_id = request.getParameter("home_id");
-System.out.println("home_iff" + home_id);
 %>
 <!DOCTYPE html>
 <html>
@@ -18,6 +16,7 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 80px;
 }
 
 div {
@@ -65,7 +64,7 @@ td {
 	text-align: center;
 }
 
-a {
+.add, a {
 	color: white;
 	text-decoration: none;
 }
@@ -76,13 +75,12 @@ a {
 }
 
 .star-ratings {
-	margin-bottom: 40px; 
-	color : #aaa9a9;
+	margin-bottom: 40px;
+	color: #aaa9a9;
 	position: relative;
 	unicode-bidi: bidi-override;
 	width: max-content;
 	-webkit-text-fill-color: transparent;
-	/* Will override color (regardless of order) */
 	-webkit-text-stroke-width: 1.3px;
 	-webkit-text-stroke-color: #2b2a29;
 	flex-direction: row;
@@ -105,6 +103,10 @@ a {
 .star-ratings-base {
 	z-index: 0;
 	padding: 0;
+}
+
+.add:hover {
+	cursor: pointer;
 }
 </style>
 </head>
@@ -161,17 +163,20 @@ a {
 				<c:if test="${id eq reply.user_id}">
 					<tr>
 						<td><button>
-								<a href="/exer/replyController?action=delete&cid=${reply.id}&user_id=${reply.user_id}&home_id=${reply.home_id}">delete</a>
+								<a
+									href="/exer/replyController?action=delete&cid=${reply.id}&user_id=${reply.user_id}&home_id=${reply.home_id}">delete</a>
 							</button></td>
 					</tr>
 				</c:if>
 			</table>
 		</c:forEach>
-		<button class=add>
-			<a href="/exer/insertForm.jsp?home_id=<%=home_id%>">추가하기</a> 
-		</button>
-		<button class=add>
-			<a href="http://localhost:8080/exer/homeController?action=select&cid=5">home </a> </button>
+		<form action="/exer/InsertReplyController" method="get">
+			<input type="text" style="display: none" name="home_id"
+				value="<%=home_id%>">
+			<button type="submit" class=add>추가하기</button>
+		</form>
+		<button class=add
+			onclick="location.href='/exer/homeController?action=select&cid=5'">home</button>
 	</div>
 </body>
 </html>

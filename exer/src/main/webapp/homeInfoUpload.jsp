@@ -76,8 +76,7 @@ button {
 		</div>
 	</section>
 	<section class=content>
-		<form action="/exer/HomeInfoUploadController" method="POST"
-			enctype="multipart/form-data" action="imgup.jsp">
+		<form action="/exer/HomeInfoUploadController" method="POST">
 			<div class="form-group">
 				<label>제목</label> <input type="text" placeholder="아쿠아홀릭 이리타하마 B 윙"
 					name="title" id="id" class="form-control" required>
@@ -88,27 +87,27 @@ button {
 					class="form-control" required>
 			</div>
 			<div class="form-group">
-				<label>이미지1</label> <input type="file"
+				<label>이미지1</label> <input type="text"
 					placeholder="images/home1/home1_1.jpg" name="image1" id="tel"
 					class="form-control" required>
 			</div>
 			<div class="form-group">
-				<label>이미지2</label> <input type="file"
+				<label>이미지2</label> <input type="text"
 					placeholder="images/home1/home1_2.jpg" name="image2" id="email"
 					class="form-control" required>
 			</div>
 			<div class="form-group">
-				<label>이미지3</label> <input type="file"
+				<label>이미지3</label> <input type="text"
 					placeholder="images/home1/home1_3.jpg" name="image3" id="email"
 					class="form-control" required>
 			</div>
 			<div class="form-group">
-				<label>이미지4</label> <input type="file"
+				<label>이미지4</label> <input type="text"
 					placeholder="images/home1/home1_4.jpg" name="image4" id="email"
 					class="form-control" required>
 			</div>
 			<div class="form-group">
-				<label>이미지5</label> <input type="file"
+				<label>이미지5</label> <input type="text"
 					placeholder="images/home1/home1_5.jpg" name="image5" id="email"
 					class="form-control" required>
 			</div>
@@ -123,7 +122,7 @@ button {
 					class="form-control" required>
 			</div>
 			<div class="form-group">
-				<label>숙소정보이미지1</label> <input type="file"
+				<label>숙소정보이미지1</label> <input type="text"
 					placeholder="superhost1.png" name="sideimage1" id="email"
 					class="form-control" required>
 			</div>
@@ -138,7 +137,7 @@ button {
 					name="sideInfo1_1" id="email" class="form-control" required>
 			</div>
 			<div class="form-group">
-				<label>숙소정보이미지2</label> <input type="file" placeholder="checkin.png"
+				<label>숙소정보이미지2</label> <input type="text" placeholder="checkin.png"
 					name="sideimage2" id="email" class="form-control" required>
 			</div>
 			<div class="form-group">
@@ -150,7 +149,7 @@ button {
 					name="sideInfo2_1" id="email" class="form-control" required>
 			</div>
 			<div class="form-group">
-				<label>숙소정보이미지3</label> <input type="file" placeholder="key.png"
+				<label>숙소정보이미지3</label> <input type="text" placeholder="key.png"
 					name="sideimage3" id="email" class="form-control" required>
 			</div>
 			<div class="form-group">
@@ -163,9 +162,8 @@ button {
 					name="sideInfo3_1" id="email" class="form-control" required>
 			</div>
 			<div class="form-group">
-				<label></label> <input type="text" value="<%=insertDTO%>"
-					name="home_id" id="email" class="form-control"
-					style="display: none">
+				<label></label> <input type="hidden" value="<%=insertDTO%>"
+					name="home_id" id="email" class="form-control">
 			</div>
 			<button type="submit" class="btn btn-primary">등록</button>
 		</form>

@@ -3,10 +3,10 @@ package com.airbnb.service;
 import com.airbnb.dao.ReplyDAO;
 import com.airbnb.dto.ReplyDTO;
 
-public class ComentService {
+public class ReplyService {
 
 	private ReplyDAO replyDAO;
-	public ComentService() {
+	public ReplyService() {
 		replyDAO = new ReplyDAO();
 		
 	}

@@ -20,6 +20,10 @@ String home_id = (String) session.getAttribute("home_id");
 	padding: 0;
 }
 
+body {
+	margin-bottom: 80px;
+}
+
 .header {
 	display: flex;
 	align-items: center;
@@ -50,7 +54,7 @@ input {
 	justify-content: center;
 }
 
-.list form {
+.list .serch {
 	margin-left: 100px;
 	display: flex;
 }
@@ -89,10 +93,11 @@ div {
 	align-items: flex-start;
 	justify-content: flex-start;
 }
-#homeinfo #id{
-	border: none;
 
+#homeinfo #id {
+	border: none;
 }
+
 #homeinfo #id:hover img {
 	transform: scale(1.01);
 }
@@ -102,9 +107,8 @@ div {
 <body>
 	<section class="header">
 		<div class="icon">
-			<a
-				href="http://localhost:8080/exer/homeController?action=select&cid=5"><img
-				alt="" src="images/airbnb.jpg"></a>
+			<a href="/exer/homeController?action=select&cid=5"><img alt=""
+				src="images/airbnb.jpg"></a>
 		</div>
 		<div class="air"></div>
 		<div>
@@ -120,48 +124,59 @@ div {
 		</div>
 		<div>당신의 공간을 에어비엔비하세요</div>
 		<div>
-			<a href="/exer/index.jsp"><img alt="" src="images/Login.png"
-				class="login"></a>
+			<a href="/exer/UserInfoController"><img alt=""
+				src="images/Login.png" class="login"></a>
 		</div>
 	</section>
 	<hr>
 	<section class="list">
-		<form action="" method="GET" class="serch">
+		<div class="serch">
 			<div>
-				<a href="/exer/errorPage.jsp"><img alt="" src="images/list1.jpg"></a>
+				<a href="/exer/ErrorPageController"><img alt=""
+					src="images/list1.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/errorPage.jsp"><img alt="" src="images/list2.jpg"></a>
+				<a href="/exer/ErrorPageController"><img alt=""
+					src="images/list2.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/errorPage.jsp"><img alt="" src="images/list3.jpg"></a>
+				<a href="/exer/ErrorPageController"><img alt=""
+					src="images/list3.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/errorPage.jsp"><img alt="" src="images/list4.jpg"></a>
+				<a href="/exer/ErrorPageController"><img alt=""
+					src="images/list4.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/errorPage.jsp"><img alt="" src="images/list5.jpg"></a>
+				<a href="/exer/ErrorPageController"><img alt=""
+					src="images/list5.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/errorPage.jsp"><img alt="" src="images/list6.jpg"></a>
+				<a href="/exer/ErrorPageController"><img alt=""
+					src="images/list6.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/errorPage.jsp"><img alt="" src="images/list7.jpg"></a>
+				<a href="/exer/ErrorPageController"><img alt=""
+					src="images/list7.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/errorPage.jsp"><img alt="" src="images/list8.jpg"></a>
+				<a href="/exer/ErrorPageController"><img alt=""
+					src="images/list8.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/errorPage.jsp"><img alt="" src="images/list9.jpg"></a>
+				<a href="/exer/ErrorPageController"><img alt=""
+					src="images/list9.jpg"></a>
 			</div>
-		</form>
+		</div>
 	</section>
 	<section class="home">
 		<div>
 			<c:forEach var="home" items="${list}">
-				<form action="/exer/homeInfoController" name="home_id" method="GET" class="serch " id="homeinfo">
-					<button type="submit" name="id" value="${home.id}" id="id"> <img alt=""
-						src="images/home${home.id}.png" style="border-radius: 20px">
+				<form action="/exer/homeInfoController" name="home_id" method="GET"
+					class="serch " id="homeinfo">
+					<button type="submit" name="id" value="${home.id}" id="id">
+						<img alt="" src="images/home${home.id}.png"
+							style="border-radius: 20px">
 					</button>
 					<p>${home.name}</p>
 					<p>${home.view}</p>

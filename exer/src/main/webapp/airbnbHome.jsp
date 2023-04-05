@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ page errorPage="errorPage.jsp" %>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-	
-	<%
+<%@ page errorPage="errorPage.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
 String id = (String) session.getAttribute("id");
 String home_id = (String) session.getAttribute("home_id");
 %>
@@ -12,15 +11,18 @@ String home_id = (String) session.getAttribute("home_id");
 <head>
 <meta charset="UTF-8">
 <title>airbnb</title>
- <link rel="shortcut icon" sizes="76x76" type="image/x-icon"
-        href="https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico">
+<link rel="shortcut icon" sizes="76x76" type="image/x-icon"
+	href="https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico">
 <style type="text/css">
 * {
 	background-color: white;
 	margin: 0;
 	padding: 0;
 }
+body{
+	margin-bottom: 80px;
 
+}
 .header {
 	display: flex;
 	align-items: center;
@@ -52,7 +54,7 @@ input {
 }
 
 .list form {
-	margin-left:100px;
+	margin-left: 100px;
 	display: flex;
 }
 
@@ -90,10 +92,11 @@ div {
 	align-items: flex-start;
 	justify-content: flex-start;
 }
-#homeinfo #id{
-	border: none;
 
+#homeinfo #id {
+	border: none;
 }
+
 #homeinfo #id:hover img {
 	transform: scale(1.01);
 }
@@ -102,11 +105,13 @@ div {
 <body>
 	<section class="header">
 		<div class="icon">
-			<a href="http://localhost:8080/exer/homeController?action=search&cid=5"><img alt="" src="images/airbnb.jpg"></a>
+			<a
+				href="/exer/homeController?action=search"><img
+				alt="" src="images/airbnb.jpg"></a>
 		</div>
 		<div class="air"></div>
 		<div>
-			<form action="/exer/searchcontroller" method="POST" class="serch">
+			<form action="/exer/UserSignInController" method="get" class="serch">
 				<input type="text" name="search"
 					style="border-radius: 20px; width: 300px;"
 					placeholder="어디든지 | 언제든 일주일 | 게스트추가">
@@ -118,47 +123,49 @@ div {
 		</div>
 		<div>당신의 공간을 에어비엔비하세요</div>
 		<div>
-			<a href="/exer/signin.jsp"><img alt="" src="images/myinfo.jpg"></a>
+			<a href="/exer/UserSignInController"><img alt="" src="images/myinfo.jpg"></a>
 		</div>
 	</section>
 	<hr>
 	<section class="list">
 		<form action="" method="GET" class="serch">
 			<div>
-				<a href="/exer/error.jsp"><img alt="" src="images/list1.jpg"></a>
+				<a href="/exer/ErrorController"><img alt="" src="images/list1.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/error.jsp"><img alt="" src="images/list2.jpg"></a>
+				<a href="/exer/ErrorController"><img alt="" src="images/list2.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/error.jsp"><img alt="" src="images/list3.jpg"></a>
+				<a href="/exer/ErrorController"><img alt="" src="images/list3.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/error.jsp"><img alt="" src="images/list4.jpg"></a>
+				<a href="/exer/ErrorController"><img alt="" src="images/list4.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/error.jsp"><img alt="" src="images/list5.jpg"></a>
+				<a href="/exer/ErrorController"><img alt="" src="images/list5.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/error.jsp"><img alt="" src="images/list6.jpg"></a>
+				<a href="/exer/ErrorController"><img alt="" src="images/list6.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/error.jsp"><img alt="" src="images/list7.jpg"></a>
+				<a href="/exer/ErrorController"><img alt="" src="images/list7.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/error.jsp"><img alt="" src="images/list8.jpg"></a>
+				<a href="/exer/ErrorController"><img alt="" src="images/list8.jpg"></a>
 			</div>
 			<div>
-				<a href="/exer/error.jsp"><img alt="" src="images/list9.jpg"></a>
+				<a href="/exer/ErrorController"><img alt="" src="images/list9.jpg"></a>
 			</div>
 		</form>
 	</section>
 	<section class="home">
 		<div>
 			<c:forEach var="home" items="${list}">
-				<form action="/exer/homeInfoController" name="home_id" method="GET" class="serch " id="homeinfo">
-					<button type="submit" name="id" value="${home.id}" id="id"> <img alt=""
-						src="images/home${home.id}.png" style="border-radius: 20px">
+				<form action="/exer/UserSignInController" name="home_id" method="GET"
+					class="serch " id="homeinfo">
+					<button type="submit" name="id" value="${home.id}" id="id">
+						<img alt="" src="images/home${home.id}.png"
+							style="border-radius: 20px">
 					</button>
 					<p>${home.name}</p>
 					<p>${home.view}</p>

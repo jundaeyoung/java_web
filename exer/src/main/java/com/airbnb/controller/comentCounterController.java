@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.airbnb.dto.ReplyDTO;
 import com.airbnb.dto.UserDTO;
-import com.airbnb.service.ComentService;
+import com.airbnb.service.ReplyService;
 
 @WebServlet("/coment")
 public class ComentCounterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private ComentService comentService;
+	private ReplyService comentService;
 
 	public ComentCounterController() {
-		comentService = new ComentService();
+		comentService = new ReplyService();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
